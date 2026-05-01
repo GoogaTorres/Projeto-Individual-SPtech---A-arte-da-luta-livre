@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A arte da luta-livre</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- IMPORTANDO FONTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <style> 
+      body{
+        overflow: hidden /* ESSE ELEMENTO É UTILIZADO PARA EVITAR SCROLL NA PÁGINA */
+      }
+    </style>
+
+  </head>
+  <body>
+    <header>
+      <div class="box-header">
+        <div class="box-header-items">
+          <h1>A arte da luta-livre</h1>
+          <div class="box-header-description">
+            <p>
+              Luta livre, lucha libre, pro-wrestling, telecatch, puroresu... São
+              muitos nomes que definem essa arte, mas o seu universo é muito
+              mais profundo do que se imagina.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="navbar">
+      <div class="navbar-items">
+        <div class="navbar-item">
+          <a href="">Home</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Ligas</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Lutadores</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Glossário</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Filmes de Pro-Wrestling</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Quiz</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Que lutador sou eu?</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Monte o seu show</a>
+        </div>
+      </div>
+      <div class="navbar-loginCadastro">
+        <div class="navbar-item">
+          <a href="">Login</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Cadastro</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="body cadastro">
+      <div class="card form"> 
+        <div class="card formContent">
+          Nome de usuário
+          <br>
+          <input type="text" id="input_username">
+          <br>
+          Gênero
+          <br>
+            <select name="genero" id="select_genero">
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+              <option value="outro">Outro</option>
+            </select>
+          <br>  
+          Data de nascimento
+          <br>
+          <input type="date" id="input_dataNascimento">
+          <br>
+          Liga favorita
+          <br>
+          <select name="" id="select_liga">
+            <option>WWE</option>
+            <option>AEW</option>
+            <option>TNA</option>
+            <option>BWF</option>
+            <option>NJPW</option>
+            <option>WCW</option>
+          </select>
+          <br>
+          Lutador(a) favorito
+          <br>
+          <select name="" id="select_lutador">
+            <option value="">Adrian Jaoude</option>
+            <option value="">AJ Lee</option>
+            <option value="">AJ Styles</option>
+            <option value="">Aquiles</option>
+            <option value="">Awesome Kong</option>
+            <option value="">Batista</option>
+            <option value="">Becky Lynch</option>
+            <option value="">Bobby Lashley</option>
+            <option value="">Booker T</option>
+            <option value="">Bret Hart</option>
+            <option value="">Britt Baker</option>
+            <option value="">Brock Lesnar</option>
+            <option value="">Cezar Bononi</option>
+            <option value="">Chris Jericho</option>
+            <option value="">CM Punk</option>
+            <option value="">Darby Allin</option>
+            <option value="">Hulk Hogan</option>
+            <option value="">Jade Cargill</option>
+            <option value="">Joe Hendry</option>
+            <option value="">John Cena</option>
+            <option value="">Jon Moxley</option>
+            <option value="">Kelly Kelly</option>
+            <option value="">Kenny Omega</option>
+            <option value="">Liv Morgan</option>
+            <option value="">Melina</option>
+            <option value="">Mercedes Mone</option>
+            <option value="">Michel Serdan</option>
+            <option value="">Mister Argentina</option>
+            <option value="">Oba Femi</option>
+            <option value="">Owen Hart</option>
+            <option value="">Rey Mysterio</option>
+            <option value="">Rhea Ripley</option>
+            <option value="">Ric Flair</option>
+            <option value="">Roman Reigns</option>
+            <option value="">Seth Rollins</option>
+            <option value="">Shawn Michaels</option>
+            <option value="">Stone Cold Steven Austin</option>
+            <option value="">Taynara Guevara</option>
+            <option value="">Ted Boy Marino</option>
+            <option value="">The Rock</option>
+            <option value="">Triple H</option>
+            <option value="">Undertaker</option>
+            <option value="">Will Ospreay</option>
+          </select>
+          <br>
+          Email
+          <br>
+          <input type="email" id="input_email"> 
+          <br>
+          Senha
+          <br>
+          <input type="password" id="input_senha">
+          <br>
+          Repita a sua senha
+          <br>
+          <input type="password" id="input_senha2">
+          <br>
+          <button onclick="cadastrar()">Cadastrar</button>
+        </div>
+      </div>
+          <div class="card alerta" id="cardAlerta"></div>
+    </div>
+        </div>
+    
+      </div>
+    <footer>
+    <div class="footer content">
+      <p>Projeto desenvolvido por Gustavo Torres | 2026</p>
+    </div>
+  </footer>
+
+  </body>
+</html>
+
+<script>
+  function cadastrar(){
+
+    var username = input_username.value;
+    var genero = select_genero.value;
+    var liga = select_liga.value;
+    var lutador = select_lutador.value;
+    var email = input_email.value;
+    var senha = input_senha.value;
+    var senha2 = input_senha2.value;
+    let cadastroValido = false;
+
+    if (username == `` || email == `` || senha == `` || senha2 == ``){
+      cardAlerta.style.display = "block";
+      cardAlerta.innerHTML = `Os campos devem estar preenchidos`
+    } else {
+      if (username.length < 5){
+        cardAlerta.style.display = "block";
+        cardAlerta.innerHTML = `O nome de usuário deve ter ao menos 5 caracteres.`
+      } else {
+        if (username.includes(' ')){
+          cardAlerta.style.display = "block";
+          cardAlerta.innerHTML = `O nome de usuário não pode conter espaço.`
+        } else {
+          if (!email.includes('@') || !email.includes('.') || email.startsWith('@') || email.startsWith('.') || email.endsWith('@') || email.endsWith('.') || email.includes(' ')){
+            cardAlerta.style.display = "block";
+            cardAlerta.innerHTML = `Email inválido.`
+          } else {
+            if (senha != senha2){
+              cardAlerta.style.display = "block";
+              cardAlerta.innerHTML = `As senhas não coincidem, digite novamente.`
+            } else {
+              if (senha == senha.toLowerCase() || senha == senha.toUpperCase() || senha.length < 6){
+                cardAlerta.style.display = "block";
+                cardAlerta.innerHTML = `A sua senha deve ter letras em caracteres maiúsculos, minúsculos e ao menos 6 caracteres.`
+              } else {
+                cadastroValido = true;
+              }
+            } 
+          }
+        }
+      }
+    }
+  }
+
+
+</script>

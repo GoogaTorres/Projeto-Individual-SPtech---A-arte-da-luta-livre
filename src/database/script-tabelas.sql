@@ -64,3 +64,20 @@ insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar'
 insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
 
 SELECT * FROM usuario;
+
+
+
+CREATE DATABASE wrestling;
+USE wrestling;
+
+CREATE TABLE usuario (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    nomeUsuario VARCHAR(16) UNIQUE,
+    email VARCHAR(32),
+    genero CHAR(1),
+    senha VARCHAR(32),
+    lutadorFavorito VARCHAR(32),
+    liga VARCHAR(5)
+);
+
+SELECT * FROM cadastro;

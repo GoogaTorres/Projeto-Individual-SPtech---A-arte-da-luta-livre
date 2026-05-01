@@ -13,6 +13,13 @@
       href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap"
       rel="stylesheet"
     />
+
+    <style> 
+      body{
+        overflow: hidden /* ESSE ELEMENTO É UTILIZADO PARA EVITAR SCROLL NA PÁGINA */
+      }
+    </style>
+
   </head>
   <body>
     <header>
@@ -59,44 +66,29 @@
       </div>
       <div class="navbar-loginCadastro">
         <div class="navbar-item">
-          <a href="login.html">Login</a>
+          <a href="">Login</a>
         </div>
         <div class="navbar-item">
-          <a href="cadastro.html">Cadastro</a>
+          <a href="">Cadastro</a>
         </div>
       </div>
     </div>
-      <div class="card main">
-        <div class="card content">
-          <div class="card image">
-            <div class="img"></div>
-          </div>
-          <div class="card text">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-              illum recusandae exercitationem facere necessitatibus enim adipisci
-              iusto eos fugiat, et atque explicabo consequatur sequi, qui quae,
-              repellendus quidem. Quos blanditiis fugiat quia non. Ipsa optio quia
-              deleniti eveniet libero earum nam, nulla officia obcaecati. Beatae
-              velit nulla modi mollitia aliquid iste. Voluptatum delectus fugit
-              sunt reprehenderit cum quae. Quas quod provident hic repellendus
-              minima cupiditate aspernatur quis rem dolores saepe, ex praesentium
-              voluptates. Recusandae molestias delectus quidem placeat blanditiis,
-              necessitatibus eos aut tempora vitae officiis cupiditate asperiores
-              veniam quos illo exercitationem dolor atque adipisci tenetur
-              voluptates doloremque. Odit labore necessitatibus, a aut at nisi qui
-              accusantium explicabo sed quis iste, totam vel, obcaecati earum
-              animi adipisci sapiente molestiae ad reiciendis repellendus?
-              Dignissimos tempore alias atque veritatis odit corrupti tenetur ad
-              obcaecati molestias cumque tempora, qui commodi autem, sed deleniti.
-              Consectetur nisi ratione mollitia at odit rem dolore modi culpa
-              fugit ex commodi tenetur, quaerat nostrum blanditiis beatae ab harum
-              quasi expedita autem porro. Sed itaque quae quis, laborum dolores
-              voluptas reiciendis culpa consequuntur impedit sequi, nihil suscipit
-              aperiam voluptatum. Ipsum cum commodi possimus.
-            </p>
-          </div>
 
+    <div class="body login">
+      <div class="card form">
+        <div class="card formContent">
+          Nome de usuário
+          <br>
+          <input type="text" id="input_username">
+          <br>
+          Senha
+          <br>
+          <input type="password" id="input_senha">
+          <br>
+          <button onclick="logar()">Login</button>
+        </div>
+      </div>
+    </div>
         </div>
 
       </div>
