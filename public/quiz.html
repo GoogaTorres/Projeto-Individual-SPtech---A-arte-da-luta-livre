@@ -74,24 +74,17 @@
       </div>
     </div>
 
-    <div class="body login">
-      <div class="card form">
-        <div class="card formContent">
-          Nome de usuário
+    <div class="body quiz">
+      <div class="card quiz">
+        <div class="card quiz content">
+          <div class="card quiz pergunta" id="cardQuizPergunta"></div>
           <br>
-          <input type="text" id="input_username">
+          <input type="text" id="input_resposta">
           <br>
-          Senha
-          <br>
-          <input type="password" id="input_senha">
-          <br>
-          <button onclick="logar()">Login</button>
+          <button onclick="responder()">Responder</button>
         </div>
       </div>
     </div>
-        </div>
-
-      </div>
     <footer>
     <div class="footer content">
       <p>Projeto desenvolvido por Gustavo Torres | 2026</p>
@@ -100,3 +93,39 @@
 
   </body>
 </html>
+
+<script>
+  let pontuacao = 0;
+  let respondeu = false;
+  let resposta = ``;
+  let quiz = 0;
+
+  const perguntas = [
+    "Qual é o nome da atual maior liga de pro-wrestling do mundo?<br>a - TNA<br>b - WWE<br>c - WCW<br>d - AEW<br>e - NJPW",
+    "Quem quebrou a sequência de vitórias do Undertaker na Wrestlemania?<br>a - Kurt Angle<br>b - Randy Orton<br>c - Bray Wyatt<br>d - Shawn Michaels<br>e - Brock Lesnar",
+    "O que significa o termo 'kayfabe'?<br>a - Enredo<br>b - Personagem<br>c - Vilão<br>d - Mocinho<br>e - Rivalidade",
+    "O que significa o termo 'heel'?<br>a - Enredo<br>b - Personagem<br>c - Vilão<br>d - Mocinho<br>e - Rivalidade",
+    "Em que ano ocorreu a primeira Wrestlemania?<br>a - 1994<br>b - 1984<br>c - 1974<br>d - 1964<br>e - 1954",
+    "Em que ano ocorreu o primeiro e único evento da WWE no Brasil?<br>a - 2008<br>b - 2014<br>c - 2007<br>d - 2012<br>e - 2019",
+    "Qual é o nome da lutadora brasileira da AEW?<br>a - Valentina Feroz<br>b - Gabi Castrovinci<br>c - Angel Blake<br>d- Bianca<br>e - Taynara Guevara"
+  ];
+
+  const respostas = ['B', 'E', 'A', 'C', 'B', 'D', 'E'];
+
+  cardQuizPergunta.innerHTML = `${perguntas[quiz]}`
+
+  function responder(){
+    resposta = input_resposta.value;
+    resposta = resposta.toUpperCase();
+    if (resposta == respostas[quiz]){
+      pontuacao++
+    }
+    quiz++
+    if (quiz >= perguntas.length){
+      cardQuizPergunta.innerHTML = `Você acertou ${pontuacao}/${perguntas.length}`
+    } else {
+      cardQuizPergunta.innerHTML = `${perguntas[quiz]}`
+    }
+  }
+
+</script>
