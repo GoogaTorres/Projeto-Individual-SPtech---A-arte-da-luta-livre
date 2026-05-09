@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A arte da luta-livre</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- IMPORTANDO FONTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <style> 
+      body{
+        overflow: hidden /* ESSE ELEMENTO É UTILIZADO PARA EVITAR SCROLL NA PÁGINA */
+      }
+    </style>
+
+  </head>
+  <body>
+    <header>
+      <div class="box-header">
+        <div class="box-header-items">
+          <h1>A arte da luta-livre</h1>
+          <div class="box-header-description">
+            <p>
+              Luta livre, lucha libre, pro-wrestling, telecatch, puroresu... São
+              muitos nomes que definem essa arte, mas o seu universo é muito
+              mais profundo do que se imagina.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="navbar">
+      <div class="navbar-items">
+        <div class="navbar-item">
+          <a href="">Home</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Ligas</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Lutadores</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Glossário</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Filmes de Pro-Wrestling</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Quiz</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Que lutador sou eu?</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Monte o seu show</a>
+        </div>
+      </div>
+      <div class="navbar-loginCadastro">
+        <div class="navbar-item">
+          <a href="">Login</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Cadastro</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="body cadastro">
+      <div class="card form"> 
+        <div class="card formContent">
+          Nome de usuário
+          <br>
+          <input type="text" id="input_nomeUsuario">
+          <br>
+          Gênero
+          <br>
+            <select name="genero" id="select_genero">
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+              <option value="outro">Outro</option>
+            </select>
+          <br>  
+          Data de nascimento
+          <br>
+          <input type="date" id="input_dataNascimento">
+          <br>
+          Liga favorita
+          <br>
+          <select name="" id="select_liga">
+            <option>WWE</option>
+            <option>AEW</option>
+            <option>TNA</option>
+            <option>BWF</option>
+            <option>NJPW</option>
+            <option>WCW</option>
+          </select>
+          <br>
+          Lutador(a) favorito
+          <br>
+          <select name="" id="select_lutadorFavorito">
+            <option>Adrian Jaoude</option>
+            <option>AJ Lee</option>
+            <option>AJ Styles</option>
+            <option>Aquiles</option>
+            <option>Awesome Kong</option>
+            <option>Batista</option>
+            <option>Becky Lynch</option>
+            <option>Bobby Lashley</option>
+            <option>Booker T</option>
+            <option>Bret Hart</option>
+            <option>Britt Baker</option>
+            <option>Brock Lesnar</option>
+            <option>Cezar Bononi</option>
+            <option>Chris Jericho</option>
+            <option>CM Punk</option>
+            <option>Darby Allin</option>
+            <option>Hulk Hogan</option>
+            <option>Jade Cargill</option>
+            <option>Joe Hendry</option>
+            <option>John Cena</option>
+            <option>Jon Moxley</option>
+            <option>Kelly Kelly</option>
+            <option>Kenny Omega</option>
+            <option>Liv Morgan</option>
+            <option>Melina</option>
+            <option>Mercedes Mone</option>
+            <option>Michel Serdan</option>
+            <option>Mister Argentina</option>
+            <option>Oba Femi</option>
+            <option>Owen Hart</option>
+            <option>Rey Mysterio</option>
+            <option>Rhea Ripley</option>
+            <option>Ric Flair</option>
+            <option>Roman Reigns</option>
+            <option>Seth Rollins</option>
+            <option>Shawn Michaels</option>
+            <option>Stone Cold Steven Austin</option>
+            <option>Taynara Guevara</option>
+            <option>Ted Boy Marino</option>
+            <option>The Rock</option>
+            <option>Triple H</option>
+            <option>Undertaker</option>
+            <option>Will Ospreay</option>
+          </select>
+          <br>
+          Email
+          <br>
+          <input type="email" id="input_email"> 
+          <br>
+          Senha
+          <br>
+          <input type="password" id="input_senha">
+          <br>
+          Repita a sua senha
+          <br>
+          <input type="password" id="input_senha2">
+          <br>
+          <button onclick="cadastrar()">Cadastrar</button>
+        </div>
+      </div>
+          <div class="card alerta" id="cardAlerta"></div>
+    </div>
+        </div>
+    
+      </div>
+    <footer>
+    <div class="footer content">
+      <p>Projeto desenvolvido por Gustavo Torres | 2026</p>
+    </div>
+  </footer>
+
+  </body>
+</html>
+<script>
+
+  // Array para armazenar empresas cadastradas para validação de código de ativação 
+  // let listaEmpresasCadastradas = [];
+
+  function cadastrar() {
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeUsuarioVar = input_nomeUsuario.value;
+    var generoVar = select_genero.value;
+    var ligaVar = select_liga.value;
+    var lutadorFavoritoVar = select_lutadorFavorito.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+    var senha2Var = input_senha2.value;
+    let cadastroValido = false;
+
+    if (nomeUsuarioVar == `` || emailVar == `` || senhaVar == `` || senha2Var == ``){
+    cardAlerta.style.display = "block";
+    cardAlerta.innerHTML = `Os campos devem estar preenchidos`
+    } else {
+      if (nomeUsuarioVar.length < 5){
+        cardAlerta.style.display = "block";
+        cardAlerta.innerHTML = `O nome de usuário deve ter ao menos 5 caracteres.`
+      } else {
+        if (nomeUsuarioVar.includes(' ')){
+          cardAlerta.style.display = "block";
+          cardAlerta.innerHTML = `O nome de usuário não pode conter espaço.`
+        } else {
+          if (!emailVar.includes('@') || !emailVar.includes('.') || emailVar.startsWith('@') || emailVar.startsWith('.') || emailVar.endsWith('@') || emailVar.endsWith('.') || emailVar.includes(' ')){
+            cardAlerta.style.display = "block";
+            cardAlerta.innerHTML = `Email inválido.`
+          } else {
+            if (senhaVar != senha2Var){
+              cardAlerta.style.display = "block";
+              cardAlerta.innerHTML = `As senhas não coincidem, digite novamente.`
+            } else {
+              if (senhaVar == senhaVar.toLowerCase() || senhaVar == senhaVar.toUpperCase() || senhaVar.length < 6){
+                cardAlerta.style.display = "block";
+                cardAlerta.innerHTML = `A sua senha deve ter letras em caracteres maiúsculos, minúsculos e ao menos 6 caracteres.`
+              } else {
+                    // Enviando o valor da nova input
+                    fetch("/usuarios/cadastrar", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({
+                        // crie um atributo que recebe o valor recuperado aqui
+                        // Agora vá para o arquivo routes/usuario.js
+                        nomeUsuarioServer: nomeUsuarioVar,
+                        generoServer: generoVar,
+                        ligaServer: ligaVar,
+                        lutadorFavoritoServer: lutadorFavoritoVar,
+                        emailServer: emailVar,
+                        senhaServer: senhaVar
+                      }),
+                    })
+                      .then(function (resposta) {
+                        console.log("resposta: ", resposta);
+
+                        if (resposta.ok) {
+                          cardAlerta.style.display = "block";
+                          cardAlerta.style.backgroundcolor = "olive";
+                          cardAlerta.innerHTML = `Cadastro realizado com sucesso!`
+
+                          setTimeout(() => {
+                            window.location = "login.html";
+                          }, "2000");
+
+                          limparFormulario();
+                          finalizarAguardar();
+                        } else {
+                          throw "Houve um erro ao tentar realizar o cadastro!";
+                        }
+                      })
+                      .catch(function (resposta) {
+                        console.log(`#ERRO: ${resposta}`);
+                        finalizarAguardar();
+                      });
+
+                    return false;
+                  }
+
+              }
+            } 
+          }
+        }
+      }
+    }
+    
+
+
+  // function sumirMensagem() {
+  //   cardErro.style.display = "none";
+  // }
+</script>

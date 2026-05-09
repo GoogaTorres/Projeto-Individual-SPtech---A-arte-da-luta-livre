@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A arte da luta-livre</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- IMPORTANDO FONTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <style> 
+      body{
+        overflow: hidden /* ESSE ELEMENTO É UTILIZADO PARA EVITAR SCROLL NA PÁGINA */
+      }
+    </style>
+
+  </head>
+  <body>
+    <header>
+      <div class="box-header">
+        <div class="box-header-items">
+          <h1>A arte da luta-livre</h1>
+          <div class="box-header-description">
+            <p>
+              Luta livre, lucha libre, pro-wrestling, telecatch, puroresu... São
+              muitos nomes que definem essa arte, mas o seu universo é muito
+              mais profundo do que se imagina.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="navbar">
+      <div class="navbar-items">
+        <div class="navbar-item">
+          <a href="">Home</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Ligas</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Lutadores</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Glossário</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Filmes de Pro-Wrestling</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Quiz</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Que lutador sou eu?</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Monte o seu show</a>
+        </div>
+      </div>
+      <div class="navbar-loginCadastro">
+        <div class="navbar-item">
+          <a href="">Login</a>
+        </div>
+        <div class="navbar-item">
+          <a href="">Cadastro</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="body login">
+      <div class="card form">
+        <div class="card formContent">
+          Email
+          <br>
+          <input type="text" id="input_email">
+          <br>
+          Senha
+          <br>
+          <input type="password" id="input_senha">
+          <br>
+          <button onclick="logar()">Login</button>
+        </div>
+      </div>
+      <div class="card alerta" id="cardAlerta"></div>
+    </div>
+        </div>
+
+      </div>
+    <footer>
+    <div class="footer content">
+      <p>Projeto desenvolvido por Gustavo Torres | 2026</p>
+    </div>
+  </footer>
+
+  </body>
+</html>
+
+<script>
+      function logar() {
+
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+          cardAlerta.style.display = "block";
+          cardAlerta.innerHTML = `Os campos devem estar preenchidos`
+        } else {
+          console.log("FORM LOGIN: ", emailVar);
+          console.log("FORM SENHA: ", senhaVar);
+
+          fetch("/usuarios/autenticar", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                  emailServer: emailVar,
+                  senhaServer: senhaVar
+              })
+          }).then(function (resposta) {
+              console.log("ESTOU NO THEN DO entrar()!")
+
+              if (resposta.ok) {
+                  console.log(resposta);
+
+                  resposta.json().then(json => {
+                      console.log(json);
+                      console.log(JSON.stringify(json));
+                      sessionStorage.EMAIL_USUARIO = json.email;
+                      sessionStorage.NOME_USUARIO = json.nomeUsuario;
+                      sessionStorage.ID_USUARIO = json.id;
+                      // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                      setTimeout(function () {
+                          window.location = "./dashboard/cards.html";
+                      }, 1000); // apenas para exibir o loading
+
+                  });
+
+              } else {
+
+                  console.log("Houve um erro ao tentar realizar o login!");
+                  cardAlerta.style.display = "block";
+                  cardAlerta.innerHTML = `Falha na autenticação, verifique o e-mail e a senha.`
+
+                  resposta.text().then(texto => {
+                      console.error(texto);
+                      // finalizarAguardar(texto);
+                  });
+              }
+
+          }).catch(function (erro) {
+              console.log(erro);
+          })
+
+          return false;
+        }
+
+
+    }
+
+</script>
