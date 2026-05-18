@@ -16,7 +16,15 @@
 
     <style> 
       body{
+        background-image: url(imagens/bg7.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
         overflow: hidden /* ESSE ELEMENTO É UTILIZADO PARA EVITAR SCROLL NA PÁGINA */
+      }
+
+      footer{
+         position: absolute; /*A POSITION ABSOLUTE SÓ SERÁ USADA QUANDO A PÁGINA NÃO TIVER ROLAGEM*/
       }
     </style>
 
@@ -37,55 +45,68 @@
         </div>
       </div>
     </header>
-    <div class="navbar">
-      <div class="navbar-items">
-        <div class="navbar-item">
-          <a href="">Home</a>
-        </div>
-        <div class="navbar-item">
-          <a href="">Ligas</a>
-        </div>
-        <div class="navbar-item">
-          <a href="">Lutadores</a>
-        </div>
-        <div class="navbar-item">
-          <a href="">Glossário</a>
-        </div>
-        <div class="navbar-item">
-          <a href="">Filmes de Pro-Wrestling</a>
-        </div>
-        <div class="navbar-item">
-          <a href="">Quiz</a>
-        </div>
-        <div class="navbar-item">
-          <a href="">Que lutador sou eu?</a>
-        </div>
-        <div class="navbar-item">
-          <a href="">Monte o seu show</a>
-        </div>
+  <div class="navbar">
+    <div class="navbar-items">
+      <div class="navbar-item">
+        <a href="index.html">Home</a>
       </div>
-      <div class="navbar-loginCadastro">
-        <div class="navbar-item">
-          <a href="">Login</a>
-        </div>
-        <div class="navbar-item">
-          <a href="">Cadastro</a>
-        </div>
+      <div class="navbar-item">
+        <a href="">Ligas</a>
+      </div>
+      <div class="navbar-item">
+        <a href="">Lutadores</a>
+      </div>
+      <div class="navbar-item">
+        <a href="">Glossário</a>
+      </div>
+      <div class="navbar-item">
+        <a href="">Filmes de Pro-Wrestling</a>
+      </div>
+      <div class="navbar-item">
+        <a href="quiz.html">Quiz</a>
+      </div>
+      <div class="navbar-item">
+        <a href="">Que lutador sou eu?</a>
+      </div>
+      <div class="navbar-item">
+        <a href="">Monte o seu show</a>
       </div>
     </div>
-
+    <div class="navbar-loginCadastro">
+      <div class="navbar-item">
+        <a href="login.html">Login</a>
+      </div>
+      <div class="navbar-item">
+        <a href="cadastro.html">Cadastro</a>
+      </div>
+    </div>
+  </div>
     <div class="body quiz">
-      <div class="card quiz">
-        <div class="card quiz content">
-          <div class="card quiz pergunta" id="cardQuizPergunta"></div>
-          <br>
-          <input type="text" id="input_resposta">
-          <br>
-          <button onclick="responder()">Responder</button>
+      <div class="cardQuiz" id="cardQuiz">
+        <div class="cardQuiz content">
+          <div class="cardQuiz pergunta" id="cardQuizPergunta">
+            <div class="numPergunta" id="numPergunta"></div>
+            <div class="perguntaTitulo" id="perguntaTitulo">Pergunta<br></div>
+            <hr>
+             <button onclick="altA()" id="alternativaA"></button><br>
+             <button onclick="altB()" id="alternativaB"></button><br>
+             <button onclick="altC()" id="alternativaC"></button><br>
+             <button onclick="altD()" id="alternativaD"></button><br>
+             <button onclick="altE()" id="alternativaE"></button><br>
+          </div> 
+        </div>
+        <div class="cardResposta" id="cardResposta" style="display: none;">
+          <span id="descricao"></span><br>
+          <span id="img"></span><br>
+            <button onclick="proxPergunta()">Próxima pergunta</button>
+          </div>
+        </div>
+        <div class="cardQuizFinal content" id="cardQuizFinal" style="display: none;">
+          <span id="msgQuizFinal"></span>
         </div>
       </div>
+      
     </div>
-    <footer>
   <footer>
     <div class="footer content">
       <div class="footer texto">
@@ -111,6 +132,232 @@
 </html>
 
 <script>
+  const quiz = [
+  {
+    pergunta: `1 - O que significa o termo 'kayfabe'?`,
+    alternativaA: `a) Ficção`,
+    alternativaB: `b) Personagem`,
+    alternativaC: `c) Vilão`,
+    alternativaD: `d) Estipulação`,
+    alternativaE: `e) Evento não televisionado`,
+    gabarito: 'A',
+    descricao: `A kayfabe pode ser entendida por ficção ou narrativa. É tudo o que acontece dentro da história.`,
+    imagem: `<img src="imagens/dchiraw1672_01_ntwk_rev_1--a622a7657694a88fbe7e8359378c384f.jpg" alt="" width="600px">`
+  },
+
+  {
+    pergunta: `2 - Qual é o nome da lutadora brasileira da All Elite Wrestling?`,
+    alternativaA: `a) Valentina Feroz`,
+    alternativaB: `b) Gabi Castrovinci`,
+    alternativaC: `c) Angel Blake`,
+    alternativaD: `d) Bianca`,
+    alternativaE: `e) Taynara Conti`,
+    gabarito: 'E',
+    descricao: `A Taynara Conti é a primeira e única lutadora brasileira da All Elite Wrestling. Ela se destacou durante o período da pandemia e participou de combates valendo títulos.`,
+    imagem: `<img src="imagens/space-aew-tay-conti-vitoria.webp" alt="" width="600px">`
+  },
+
+  {
+    pergunta: `3 - Como é chamado o lutador que atua como vilão?`,
+    alternativaA: `a) Babyface`,
+    alternativaB: `b) Kayfabe`,
+    alternativaC: `c) Work`,
+    alternativaD: `d) Heel`,
+    alternativaE: `e) Tweener`,
+    gabarito: 'D',
+    descricao: `O termo que designa um vilão na luta-livre é "heel".`,
+    imagem: `<img src="imagens/9a55f-17777056400898-1920.avif" alt="" width="600px">`
+  },
+
+  {
+    pergunta: `4 - Quem quebrou a sequência de 21 vitórias na Wrestlemania do Undertaker?`,
+    alternativaA: `a) Joe Hendry`,
+    alternativaB: `b) Brock Lesnar`,
+    alternativaC: `c) Triple H`,
+    alternativaD: `d) The Rock`,
+    alternativaE: `e) Shawn Michaels`,
+    gabarito: 'B',
+    descricao: `Brock Lesnar quebrou a sequência de vitórias de Undertaker na Wrestlemania 30, em 2014. Este momento marcou a história da WWE e chocou todos os fãs ao redor do mundo.`,
+    imagem: `<img src="imagens/Paul-Heyman-raises-Brock-Lesnars-hand-over-The-Undertaker-960x540.webp" alt="" width="600px">`
+  },
+
+  {
+    pergunta: `5 - Quem foi o lutador mais popular do Telecatch no Brasil na década de 1960?`,
+    alternativaA: `a) Aquiles`,
+    alternativaB: `b) Michel Serdan`,
+    alternativaC: `c) Bob Leo`,
+    alternativaD: `d) Ted Boy Marino`,
+    alternativaE: `e) Chico Alicate`,
+    gabarito: 'D',
+    descricao: `Ted Boy Marino foi o atleta mais popular durante o auge do Telecatch no Brasil.`,
+    imagem: `<img src="imagens/12741_ted-boy-marino-lutador-de-lula-livre-_1.webp" alt="" width="600px">`
+  },
+
+  {
+    pergunta: `6 - Qual é a contagem que um juiz deve realizar para validar uma queda (pinfall)?`,
+    alternativaA: `a) 15`,
+    alternativaB: `b) 12`,
+    alternativaC: `c) 9`,
+    alternativaD: `d) 6`,
+    alternativaE: `e) 3`,
+    gabarito: 'E',
+    descricao: `A contagem para validar uma queda é até 3.`,
+    imagem: `<img src="imagens/pinfall.jpg" alt="" width="600px">`
+  },
+
+  {
+    pergunta: `7 - O que é o "countout"?`,
+    alternativaA: `a) Desclassificação por não retornar ao ringue após uma contagem de 10`,
+    alternativaB: `b) Encerramento do combate após tempo limite`,
+    alternativaC: `c) Derrota por infringir uma regra 3 vezes`,
+    alternativaD: `d) Derrota por permanecer 10 segundos no chão`,
+    alternativaE: `e) Desclassificação por não soltar o adversário após 5 segundos na corda`,
+    gabarito: 'A',
+    descricao: `Countout é a contagem feita pelo juiz que vai até 10 quando um lutador está fora do ringue. Caso o lutador não retorne, ele é desclassificado.`,
+    imagem: `<img src="imagens/countout.jpg" alt="" width="600px">`
+  }
+  ]
+
+  var pontuacao = 0;
+  let questao = 0;
+
+// Inicialização do quiz com a pergunta inicial
+numPergunta.innerHTML = `Pergunta ${questao + 1} de ${quiz.length}`
+perguntaTitulo.innerHTML = quiz[0].pergunta
+alternativaA.innerHTML = quiz[0].alternativaA
+alternativaB.innerHTML = quiz[0].alternativaB
+alternativaC.innerHTML = quiz[0].alternativaC
+alternativaD.innerHTML = quiz[0].alternativaD
+alternativaE.innerHTML = quiz[0].alternativaE
+
+let resposta = ``
+
+function altA(){
+  resposta = `A`
+  responder()
+}
+
+function altB(){
+  resposta = `B`
+  responder()
+}
+
+function altC(){
+  resposta = `C`
+  responder()
+}
+
+function altD(){
+  resposta = `D`
+  responder()
+}
+
+function altE(){
+  resposta = `E`
+  responder()
+}
+
+function responder(){
+    if(resposta == quiz[questao].gabarito){
+    pontuacao++
+  }
+
+
+
+    if (questao == quiz.length){
+      fimQuiz()
+  } else {
+    cardQuizPergunta.style.display = "none";
+    cardResposta.style.display = "flex";
+    descricao.innerHTML = quiz[questao].descricao
+    img.innerHTML = quiz[questao].imagem
+  }
+
+  }
+
+  function fimQuiz(){
+    cardResposta.style.display = "none";
+    cardQuizPergunta.style.display = "none";
+    cardQuizFinal.style.display = "flex";
+    msgQuizFinal.innerHTML = `Quiz finalizado!<br>Você acertou ${pontuacao} de ${quiz.length} perguntas.<br><button onclick="tentarNovamente()">Tentar novamente</button>`
+}
+
+function proxPergunta(){
+    if (questao == quiz.length - 1){
+      fimQuiz()
+    } else {
+      questao++
+      cardQuizPergunta.style.display = "block";
+      cardResposta.style.display = "none";
+      numPergunta.innerHTML = `Pergunta ${questao + 1} de ${quiz.length}`
+      perguntaTitulo.innerHTML = quiz[questao].pergunta
+      alternativaA.innerHTML = quiz[questao].alternativaA
+      alternativaB.innerHTML = quiz[questao].alternativaB
+      alternativaC.innerHTML = quiz[questao].alternativaC
+      alternativaD.innerHTML = quiz[questao].alternativaD
+      alternativaE.innerHTML = quiz[questao].alternativaE
+    }
+
+}
+
+
+function enviar(){
+  // Enviando o valor da nova input
+  fetch("/quiz/exportar", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      // crie um atributo que recebe o valor recuperado aqui
+      // Agora vá para o arquivo routes/usuario.js
+      pontuacaoServer: pontuacao
+    }),
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+        cardAlerta.style.display = "block";
+        cardAlerta.style.backgroundcolor = "olive";
+        cardAlerta.innerHTML = `Cadastro realizado com sucesso!`
+
+        setTimeout(() => {
+          window.location = "login.html";
+          // ESSA FUNÇÃO REDIRECIONA PRA ALGUMA PÁGINA
+        }, "2000");
+
+        limparFormulario();
+      } else {
+        throw "Houve um erro ao tentar enviar as informações!";
+      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+
+  return false;
+}
+
+function tentarNovamente(){
+  cardResposta.style.display = "none";
+  cardQuizPergunta.style.display = "block";
+  cardQuizFinal.style.display = "none";
+  questao = 0
+  pontuacao = 0
+  numPergunta.innerHTML = `Pergunta ${questao + 1} de ${quiz.length}`
+  perguntaTitulo.innerHTML = quiz[0].pergunta
+  alternativaA.innerHTML = quiz[0].alternativaA
+  alternativaB.innerHTML = quiz[0].alternativaB
+  alternativaC.innerHTML = quiz[0].alternativaC
+  alternativaD.innerHTML = quiz[0].alternativaD
+  alternativaE.innerHTML = quiz[0].alternativaE
+}
+</script>
+
+
+
+<!-- <script>
   let pontuacao = 0;
   let respondeu = false;
   let resposta = ``;
@@ -126,6 +373,9 @@
     "Qual é o nome da lutadora brasileira da AEW?<br>a - Valentina Feroz<br>b - Gabi Castrovinci<br>c - Angel Blake<br>d- Bianca<br>e - Taynara Guevara"
   ];
 
+  const alternativas = [
+    
+  ]
   const respostas = ['B', 'E', 'A', 'C', 'B', 'D', 'E'];
 
   cardQuizPergunta.innerHTML = `${perguntas[quiz]}`
@@ -144,4 +394,4 @@
     }
   }
 
-</script>
+</script> -->

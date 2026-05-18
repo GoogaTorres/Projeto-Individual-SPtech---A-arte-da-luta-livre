@@ -63,6 +63,10 @@ insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3
 insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
 insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
 
+INSERT INTO medida (dht11_umidade, dht11_temperatura, luminosidade, lm35_temperatura, chave, momento, fk_aquario) VALUES
+(4.1, 6.1, 6.0, 10.2, 1, '2026-05-08 12:00:00', 1),
+(8.1, 12.1, 12.0, 20.2, 1, '2026-05-09 18:30:00', 1);
+
 SELECT * FROM usuario;
 
 
@@ -71,13 +75,25 @@ CREATE DATABASE wrestling;
 USE wrestling;
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    nomeUsuario VARCHAR(16) UNIQUE,
-    email VARCHAR(32),
-    genero CHAR(1),
-    senha VARCHAR(32),
-    lutadorFavorito VARCHAR(32),
-    liga VARCHAR(5)
+id INT PRIMARY KEY AUTO_INCREMENT,
+nomeUsuario VARCHAR(45),
+email VARCHAR(45), 
+genero VARCHAR(45),
+senha VARCHAR(45),
+lutadorFavorito VARCHAR(45),
+liga VARCHAR(45)
 );
 
-SELECT * FROM cadastro;
+CREATE TABLE quiz (
+	idQuiz INT PRIMARY KEY AUTO_INCREMENT,
+	fkUsuario INT,
+		CONSTRAINT const_fkUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
+	pontuacao INT,
+	dataHora DATETIME
+);
+
+SELECT * FROM quiz;
+
+DROP TABLE usuario;
+
+SELECT * FROM usuario;

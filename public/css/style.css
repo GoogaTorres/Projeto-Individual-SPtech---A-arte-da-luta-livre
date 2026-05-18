@@ -259,7 +259,6 @@ footer{
     background-position: center;
     background-size: cover;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
@@ -271,6 +270,7 @@ footer{
     display: flex;
     justify-content: center;
     text-align: center;
+    margin-top: 150px;
 }
 
 .card.formContent{
@@ -291,7 +291,6 @@ footer{
     background-position: center;
     background-size: cover;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
@@ -360,3 +359,110 @@ footer{
     color: beige;
 }
 /* FIM DASHBOARD  */
+
+/* PÁGINA DO QUIZ*/
+.body.quiz{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.cardQuiz{
+}
+
+.cardQuiz.pergunta{
+    background-color: #636363d4;
+    font-family: 'Francois One';
+    color: white;
+    text-shadow: 0px 2px 2px black;
+    padding: 30px;
+    border-radius: 10px;
+    width: 450px;
+}
+
+.perguntaTitulo{
+    font-size: 25px;
+}
+
+.cardQuizFinal.content{
+    background-color: #636363d4;
+    font-family: 'Francois One';
+    color: white;
+    text-shadow: 0px 2px 2px black;
+    padding: 30px;
+    border-radius: 10px;
+    width: 450px;
+    display: flex;
+    font-size: larger;
+    justify-content: center;
+}
+
+.cardQuiz.pergunta button{
+    background-image: linear-gradient(360deg, #b1b1b1, #ffffff);
+    height: 50px;
+    width: 100%;
+    font-family: 'Francois One';
+    font-size: 16px;
+    font-weight: bolder;
+    border-radius: 10px;
+    border-style: none;
+    margin-block: 5px;
+}
+
+.cardQuiz.pergunta button:hover{
+    color: rgb(202, 17, 17);
+    border-style: solid;
+    border-color: rgb(202, 17, 17);
+}
+
+
+.cardResposta{
+    background-color: #636363d4;
+    font-family: 'Francois One';
+    color: white;
+    text-shadow: 0px 2px 2px black;
+    padding: 30px;
+    border-radius: 10px;
+    width: 650px;
+    display: flex;
+    font-size: larger;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardResposta button{
+    background-image: linear-gradient(360deg, #b1b1b1, #ffffff);
+    height: 40px;
+    width: 100%;
+    font-family: 'Francois One';
+    font-size: 16px;
+    font-weight: bolder;
+    border-radius: 10px;
+    border-style: none;
+    margin-block: 5px;
+}
+
+.cardResposta button:hover{
+    color: rgb(202, 17, 17);
+    border-style: solid;
+    border-color: rgb(202, 17, 17);
+}
+
+.cardQuizFinal button{
+    background-image: linear-gradient(360deg, #b1b1b1, #ffffff);
+    height: 40px;
+    width: 100%;
+    font-family: 'Francois One';
+    font-size: 16px;
+    font-weight: bolder;
+    border-radius: 10px;
+    border-style: none;
+    margin-block: 5px;
+}
+
+.cardQuizFinal button:hover{
+    color: rgb(202, 17, 17);
+    border-style: solid;
+    border-color: rgb(202, 17, 17);
+}
