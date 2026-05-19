@@ -16,9 +16,9 @@ function quizesRealizados() {
     return database.executar(instrucao);    
 }
 
-function exportar(pontuacao) {
+function exportar(pontuacao, fkUsuario) {
     var instrucao = `
-        INSERT INTO quiz (pontuacao) VALUES ('${pontuacao}');
+        INSERT INTO quiz (pontuacao, fkUsuario) VALUES ('${pontuacao}', '${fkUsuario}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

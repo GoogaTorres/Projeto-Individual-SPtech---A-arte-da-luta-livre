@@ -94,6 +94,8 @@ CREATE TABLE quiz (
 
 SELECT * FROM quiz;
 
+SELECT COUNT(idQuiz) FROM quiz;
+
 DROP TABLE usuario;
 
 SELECT * FROM usuario;

@@ -12,17 +12,17 @@ body{
     color: white;
     background-color: #000000;
     text-shadow: 0px 2px 2px black;
-    justify-content: space-between;
     align-items: flex-end;
+    justify-content: space-between;
 }
 
-.navbar-loginCadastro{
+.navbarloginCadastro{
     display: flex;
     height: 100%;
     background-image: linear-gradient(360deg, #0000002e, transparent);
 }
 
-.navbar-loginCadastro a{
+.navbarloginCadastro a{
     text-decoration: none;
     color: rgb(0, 0, 0);
     font-family: "Francois One", sans-serif;
@@ -78,7 +78,7 @@ body{
     color: rgb(202, 17, 17);
 }
 
-.navbar-loginCadastro a:hover {
+.navbarloginCadastro a:hover {
     color: rgb(202, 17, 17);
 }
     
@@ -384,7 +384,7 @@ footer{
     font-size: 25px;
 }
 
-.cardQuizFinal.content{
+.cardQuizFinal{
     background-color: #636363d4;
     font-family: 'Francois One';
     color: white;
@@ -466,3 +466,37 @@ footer{
     border-style: solid;
     border-color: rgb(202, 17, 17);
 }
+
+.cardQuizDeslogado{
+    background-color: #636363d4;
+    font-family: 'Francois One';
+    color: white;
+    text-shadow: 0px 2px 2px black;
+    padding: 30px;
+    border-radius: 10px;
+    width: 650px;
+    display: flex;
+    font-size: larger;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;    
+}
+
+.cardQuizDeslogado button{
+    background-image: linear-gradient(360deg, #b1b1b1, #ffffff);
+    height: 40px;
+    width: 100%;
+    font-family: 'Francois One';
+    font-size: 16px;
+    font-weight: bolder;
+    border-radius: 10px;
+    border-style: none;
+    margin-block: 5px;
+}
+
+.cardQuizDeslogado button:hover{
+    color: rgb(202, 17, 17);
+    border-style: solid;
+    border-color: rgb(202, 17, 17);
+}
+
