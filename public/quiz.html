@@ -32,7 +32,7 @@
   <header>
     <div class="box-header">
       <div class="box-header-items">
-        <h1>A arte da luta-livre</h1>
+        <img src="imagens/logo.png" alt="" width="200px">
         <div class="box-header-description">
           <p>
             Luta livre, lucha libre, pro-wrestling, telecatch, puroresu... São
@@ -302,8 +302,6 @@ function responder(){
     pontuacao++
   }
 
-
-
     if (questao == quiz.length){
       fimQuiz()
   } else {
@@ -312,8 +310,7 @@ function responder(){
     descricao.innerHTML = quiz[questao].descricao
     img.innerHTML = quiz[questao].imagem
   }
-
-  }
+}
 
   function fimQuiz(){
     cardResposta.style.display = "none";
@@ -341,7 +338,6 @@ function proxPergunta(){
 
 }
 
-
 function enviar(){
   // Enviando o valor da nova input
   fetch("/quiz/exportar", {
@@ -352,17 +348,18 @@ function enviar(){
     body: JSON.stringify({
       // crie um atributo que recebe o valor recuperado aqui
       // Agora vá para o arquivo routes/usuario.js
-      pontuacaoServer: pontuacao,
-      fkUsuarioServer: fkUsuario
+      fkUsuarioServer: fkUsuario,
+      pontuacaoServer: pontuacao
+      
     }),
   })
     .then(function (resposta) {
       console.log("resposta: ", resposta);
 
       if (resposta.ok) {
-        cardAlerta.style.display = "block";
-        cardAlerta.style.backgroundcolor = "olive";
-        cardAlerta.innerHTML = `Cadastro realizado com sucesso!`
+        // cardAlerta.style.display = "block";
+        // cardAlerta.style.backgroundcolor = "olive";
+        // cardAlerta.innerHTML = `Cadastro realizado com sucesso!`
 
         setTimeout(() => {
           window.location = "login.html";

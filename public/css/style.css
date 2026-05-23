@@ -33,6 +33,9 @@ body{
 
 .box-header-items{
     margin-left: 10px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
 }
 
 .box-header-items p, h1{
@@ -52,8 +55,8 @@ body{
     display: flex;
     align-items: center;
     padding-inline: 10px;
-    border-right: 3px #cfcfcf groove;
-    border-left: 3px #cfcfcf groove;
+    border-right: 3px #cfcfcf91 groove;
+    border-left: 3px #cfcfcf91 groove;
     background-image: inherit;
 }
 
@@ -500,3 +503,76 @@ footer{
     border-color: rgb(202, 17, 17);
 }
 
+.bodyFilmesSeriesContent{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-block: 30px;
+}
+
+.filmesSeriesRow{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.filmesSeriesCard{
+    width: 700px;
+    height: 450px;
+    background-color: #37312cd4;
+    border-radius: 20px;
+    backdrop-filter: blur(3px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-color: #ffffff4d;
+    border-style: double;
+    border-width: 3px;
+}
+
+.bodyFilmesSeries{
+    display: flex;
+    justify-content: center;
+}
+
+.bodyFilmesSeriesHeader{
+    text-align: center;
+    color: white;
+    font-family: 'Francois One';
+    text-shadow: 3px 3px 0px black;
+    background-color: #00000082;
+}
+
+.filmesSeriesCardDiv1{
+    display: flex;
+    gap: 20px;
+    font-family: 'Francois One';
+    color: beige;
+    font-size: larger;
+    text-shadow: 3px 3px 0px black;
+    align-items: center;
+}
+
+.filmesSeriesCardHeader{
+    display: flex;
+    font-family: 'Francois One';
+    color: beige;
+    text-shadow: 3px 3px 0px black;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.filmesSeriesCardPoster img{
+    width: 250px;
+}
+
+.filmesSeriesCardTrailer{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.popcornPreFooter img{
+    width: 100%;
+}
