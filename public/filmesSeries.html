@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A arte da luta-livre</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- IMPORTANDO FONTE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background-image: url(imagens/filmesSeriesBG.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+
+<body onload="validarLogin()">
+  <header>
+    <div class="box-header">
+      <div class="box-header-items">
+        <img src="imagens/logo.png" alt="" width="200px">
+        <div class="box-header-description">
+          <p>
+            Luta livre, lucha libre, pro-wrestling, telecatch, puroresu... São
+            muitos nomes que definem essa arte, mas o seu universo é muito
+            mais profundo do que se imagina.
+          </p>
+        </div>
+      </div>
+      <div id="user">
+      <span id="username">TESTE USUÁRIO</span> <span id="userIcon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+</svg></span>
+</div>
+    </div>
+  </header>
+  <div class="navbar">
+    <div class="navbar-items">
+      <div class="navbar-item">
+        <a href="index.html">Home</a>
+      </div>
+      <div class="navbar-item">
+        <a href="">Ligas</a>
+      </div>
+      <div class="navbar-item">
+        <a href="">Lutadores</a>
+      </div>
+      <div class="navbar-item">
+        <a href="">Glossário</a>
+      </div>
+      <div class="navbar-item">
+        <a href="">Filmes de Pro-Wrestling</a>
+      </div>
+      <div class="navbar-item">
+        <a href="quiz.html">Quiz</a>
+      </div>
+      <div class="navbar-item">
+        <a href="">Que lutador sou eu?</a>
+      </div>
+      <div class="navbar-item">
+        <a href="">Monte o seu show</a>
+      </div>
+    </div>
+    <div class="navbarloginCadastro" id="navbarloginCadastro">
+      <div class="navbar-item">
+        <a href="login.html">Login</a>
+      </div>
+      <div class="navbar-item">
+        <a href="cadastro.html">Cadastro</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bodyFilmesSeries">
+    <div class="bodyFilmesSeriesContent">
+      <div class="bodyFilmesSeriesHeader">
+        <h1>FILMES E SÉRIES</h1>
+        <p>A luta-livre também está nos telões com filmes e séries que exploram esse universo, desde os besteirols até o drama dos atletas que buscam entreter o público.</p>
+      </div>
+      <div class="filmesSeriesRow 1">
+        <div class="filmesSeriesCard 1-1">
+          <div class="filmesSeriesCardHeader"><span class="filmesSeriesCardTitle">
+              <h1>GLOW (2017)</h1>
+            </span><span class="filmesSeriesCardInfo"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                class="ipc-icon ipc-icon--star-inline" viewBox="0 0 24 24" fill="currentColor" role="presentation">
+                <path
+                  d="M12 20.1l5.82 3.682c1.066.675 2.37-.322 2.09-1.584l-1.543-6.926 5.146-4.667c.94-.85.435-2.465-.799-2.567l-6.773-.602L13.29.89a1.38 1.38 0 0 0-2.581 0l-2.65 6.53-6.774.602C.052 8.126-.453 9.74.486 10.59l5.147 4.666-1.542 6.926c-.28 1.262 1.023 2.26 2.09 1.585L12 20.099z">
+                </path>
+              </svg> IMDb: 8,0/10</span>
+          </div>
+          <div class="filmesSeriesCardDiv1">
+            <span class="filmesSeriesCardPoster"><img src="imagens/filmesSeries/glow.jpg" alt=""></span>
+            <div class="filmesSeriesCardDesc">Ruth Wilder (Alison Brie) é uma atriz desempregada na Los Angeles de 1985.
+              Como última tentativa de tornar-se uma estrela, ela arrisca participar de um programa de wrestling
+              profissional, juntamente com outras doze mulheres, sob o comando do diretor de filmes "B" Sam Sylvia (Marc
+              Maron). Quando sua ex-melhor amiga Debbie Eagan (Betty Gilpin) chega ao ringue, o confronto entre as duas
+              pode trazer fama à produção ou destruí-la de uma vez.
+            </div>
+          </div>
+        </div>
+        <div class="filmesSeriesCard 1-2">
+          <div class="filmesSeriesCardHeader"><span class="filmesSeriesCardTitle">
+              <h1>Prontos Para Detonar (2000)</h1>
+            </span><span class="filmesSeriesCardInfo"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                class="ipc-icon ipc-icon--star-inline" viewBox="0 0 24 24" fill="currentColor" role="presentation">
+                <path
+                  d="M12 20.1l5.82 3.682c1.066.675 2.37-.322 2.09-1.584l-1.543-6.926 5.146-4.667c.94-.85.435-2.465-.799-2.567l-6.773-.602L13.29.89a1.38 1.38 0 0 0-2.581 0l-2.65 6.53-6.774.602C.052 8.126-.453 9.74.486 10.59l5.147 4.666-1.542 6.926c-.28 1.262 1.023 2.26 2.09 1.585L12 20.099z">
+                </path>
+              </svg> IMDb: 5,4/10</span>
+          </div>
+          <div class="filmesSeriesCardDiv1">
+            <span class="filmesSeriesCardPoster"><img src="imagens/filmesSeries/prontosParaDetonar.jpg" alt=""></span>
+            <div class="filmesSeriesCardDesc">Dois alucinados por lutas só se metem em confusão e fazem qualquer
+              maluquice para ajudar seu herói favorito de luta livre, Jerry King, a reconquistar o cinturão de campeão.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="filmesSeriesRow 2">
+        <div class="filmesSeriesCard 2-1">
+          <div class="filmesSeriesCardHeader"><span class="filmesSeriesCardTitle">
+              <h1>Nacho Libre (2006)</h1>
+            </span><span class="filmesSeriesCardInfo"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                class="ipc-icon ipc-icon--star-inline" viewBox="0 0 24 24" fill="currentColor" role="presentation">
+                <path
+                  d="M12 20.1l5.82 3.682c1.066.675 2.37-.322 2.09-1.584l-1.543-6.926 5.146-4.667c.94-.85.435-2.465-.799-2.567l-6.773-.602L13.29.89a1.38 1.38 0 0 0-2.581 0l-2.65 6.53-6.774.602C.052 8.126-.453 9.74.486 10.59l5.147 4.666-1.542 6.926c-.28 1.262 1.023 2.26 2.09 1.585L12 20.099z">
+                </path>
+              </svg> IMDb: 5,9/10</span>
+          </div>
+          <div class="filmesSeriesCardDiv1">
+            <span class="filmesSeriesCardPoster"><img src="imagens/filmesSeries/nachoLibre.jpg" alt=""></span>
+            <div class="filmesSeriesCardDesc">Nacho (Jack Black) foi criado em um monastério mexicano, localizado em
+              Oaxaca. Para tentar salvar o local ele decide se inscrever em um torneio de luta livre. Porém esta atitude
+              tem também outro motivo: o interesse de Nacho pela irmã Encarnación (Ana de la Reguera), uma bela freira
+              mexicana que chegou recentemente ao monastério.
+            </div>
+          </div>
+        </div>
+        <div class="filmesSeriesCard 2-2">
+          <div class="filmesSeriesCardHeader"><span class="filmesSeriesCardTitle">
+              <h1>O Lutador (2008)</h1>
+            </span><span class="filmesSeriesCardInfo"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                class="ipc-icon ipc-icon--star-inline" viewBox="0 0 24 24" fill="currentColor" role="presentation">
+                <path
+                  d="M12 20.1l5.82 3.682c1.066.675 2.37-.322 2.09-1.584l-1.543-6.926 5.146-4.667c.94-.85.435-2.465-.799-2.567l-6.773-.602L13.29.89a1.38 1.38 0 0 0-2.581 0l-2.65 6.53-6.774.602C.052 8.126-.453 9.74.486 10.59l5.147 4.666-1.542 6.926c-.28 1.262 1.023 2.26 2.09 1.585L12 20.099z">
+                </path>
+              </svg> IMDb: 7,9/10</span>
+          </div>
+          <div class="filmesSeriesCardDiv1">
+            <span class="filmesSeriesCardPoster"><img src="imagens/filmesSeries/oLutador.jpg" alt=""></span>
+            <div class="filmesSeriesCardDesc">Randy "Carneiro" Robinson (Mickey Rourke) é um solitário e famoso lutador
+              de wrestler que se sustenta através das lutas e também de "bicos" que faz em um mercado local. Após um
+              intenso combate, Randy sofre um infarto e, depois de uma cirurgia, é informado que corre risco de morte se
+              voltar a praticar atividades físicas. Assustado, ele procura dividir sua angústia com uma stripper (Marisa
+              Tomei), por quem nutre um desejo e, que o ajuda a retomar o contato com Stephanie (Evan Rachel Wood), a
+              filha abandonada por ele. Dividido entre um passado de glória e um futuro incerto, Randy se vê pressionado
+              a retornar ao ringue para uma importante revanche que pode mudar a sua vida.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="filmesSeriesRow 3">
+        <div class="filmesSeriesCard 3-1">
+          <div class="filmesSeriesCardHeader"><span class="filmesSeriesCardTitle">
+              <h1>Lutando Pela Família (2019)</h1>
+            </span><span class="filmesSeriesCardInfo"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                class="ipc-icon ipc-icon--star-inline" viewBox="0 0 24 24" fill="currentColor" role="presentation">
+                <path
+                  d="M12 20.1l5.82 3.682c1.066.675 2.37-.322 2.09-1.584l-1.543-6.926 5.146-4.667c.94-.85.435-2.465-.799-2.567l-6.773-.602L13.29.89a1.38 1.38 0 0 0-2.581 0l-2.65 6.53-6.774.602C.052 8.126-.453 9.74.486 10.59l5.147 4.666-1.542 6.926c-.28 1.262 1.023 2.26 2.09 1.585L12 20.099z">
+                </path>
+              </svg> IMDb: 7,0/10</span>
+          </div>
+          <div class="filmesSeriesCardDiv1">
+            <span class="filmesSeriesCardPoster"><img src="imagens/filmesSeries/lutandoPelaFamilia.jpg" alt=""></span>
+            <div class="filmesSeriesCardDesc">Uma jovem (Florence Pugh) deseja lutar na WWE, a associação estadunidense
+              de wrestling, mas, para concretizar o seu sonho, precisará convencer seus pais e suportar uma dura rotina
+              de treinamentos.
+            </div>
+          </div>
+        </div>
+        <div class="filmesSeriesCard 3-2">
+          <div class="filmesSeriesCardHeader"><span class="filmesSeriesCardTitle">
+              <h1>Heels (2021)</h1>
+            </span><span class="filmesSeriesCardInfo"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                class="ipc-icon ipc-icon--star-inline" viewBox="0 0 24 24" fill="currentColor" role="presentation">
+                <path
+                  d="M12 20.1l5.82 3.682c1.066.675 2.37-.322 2.09-1.584l-1.543-6.926 5.146-4.667c.94-.85.435-2.465-.799-2.567l-6.773-.602L13.29.89a1.38 1.38 0 0 0-2.581 0l-2.65 6.53-6.774.602C.052 8.126-.453 9.74.486 10.59l5.147 4.666-1.542 6.926c-.28 1.262 1.023 2.26 2.09 1.585L12 20.099z">
+                </path>
+              </svg> IMDb: 8,0/10</span>
+          </div>
+          <div class="filmesSeriesCardDiv1">
+            <span class="filmesSeriesCardPoster"><img src="imagens/filmesSeries/heels.jpg" alt=""></span>
+            <div class="filmesSeriesCardDesc">No enredo de Heels, em uma comunidade unida da Geórgia, uma disputa pela
+              propriedade familiar abrange dois irmãos e rivais na guerra pelo legado de seu falecido pai. No ringue,
+              alguém deve interpretar o mocinho e o outro deve interpretar seu inimigo. Mas no mundo real, esses
+              personagens podem ser difíceis de cumprir, e mais complicado ainda de deixar para trás.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="filmesSeriesRow 4">
+        <div class="filmesSeriesCard 4-1">
+          <div class="filmesSeriesCardHeader"><span class="filmesSeriesCardTitle">
+              <h1>Garra de Ferro (2023)</h1>
+            </span><span class="filmesSeriesCardInfo"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                class="ipc-icon ipc-icon--star-inline" viewBox="0 0 24 24" fill="currentColor" role="presentation">
+                <path
+                  d="M12 20.1l5.82 3.682c1.066.675 2.37-.322 2.09-1.584l-1.543-6.926 5.146-4.667c.94-.85.435-2.465-.799-2.567l-6.773-.602L13.29.89a1.38 1.38 0 0 0-2.581 0l-2.65 6.53-6.774.602C.052 8.126-.453 9.74.486 10.59l5.147 4.666-1.542 6.926c-.28 1.262 1.023 2.26 2.09 1.585L12 20.099z">
+                </path>
+              </svg> IMDb: 7,5/10</span>
+          </div>
+          <div class="filmesSeriesCardDiv1">
+            <span class="filmesSeriesCardPoster"><img src="imagens/filmesSeries/garraDeFerro.jpg" alt=""></span>
+            <div class="filmesSeriesCardDesc">O longa-metragem Garra de Ferro, dirigido por Sean Durkin, conta a
+              história real e trágica da dinastia de luta livre Von Erich. Os inseparáveis ​​irmãos Von Erich - no
+              filme, interpretados por Zac Efron, Jeremy Allen White, Harris Dickinson e Stanley Simons -, fizeram
+              história no mundo intensamente competitivo do wrestling profissional no início dos anos 1980. A família
+              comemorou grandes sucessos nos esportes, mas também sofreu grandes derrotas. Três dos filhos do Patriarca
+              (vivido por Holt McCallany) cometeram suicídio durante suas carreiras. Através da tragédia e do triunfo,
+              sob a sombra desse pai e treinador dominador, os irmãos procuram a imortalidade neste grande palco do
+              esporte. O elenco de Garra de Ferro ainda conta com Lily James, e é uma produção da A24.
+            </div>
+          </div>
+        </div>
+        <div class="filmesSeriesCard 4-2">
+          <div class="filmesSeriesCardHeader"><span class="filmesSeriesCardTitle">
+              <h1>Rainha do Ring (2024)</h1>
+            </span><span class="filmesSeriesCardInfo"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                class="ipc-icon ipc-icon--star-inline" viewBox="0 0 24 24" fill="currentColor" role="presentation">
+                <path
+                  d="M12 20.1l5.82 3.682c1.066.675 2.37-.322 2.09-1.584l-1.543-6.926 5.146-4.667c.94-.85.435-2.465-.799-2.567l-6.773-.602L13.29.89a1.38 1.38 0 0 0-2.581 0l-2.65 6.53-6.774.602C.052 8.126-.453 9.74.486 10.59l5.147 4.666-1.542 6.926c-.28 1.262 1.023 2.26 2.09 1.585L12 20.099z">
+                </path>
+              </svg> IMDb: 6,4/10</span>
+          </div>
+          <div class="filmesSeriesCardDiv1">
+            <span class="filmesSeriesCardPoster"><img src="imagens/filmesSeries/queenOfTheRing.jpg" alt=""></span>
+            <div class="filmesSeriesCardDesc">Em uma época em que a luta livre feminina era proibida nos EUA, uma mãe
+              solteira de cidade pequena enfrenta os riscos, domina o esporte mais masculino do país e se torna a
+              primeira atleta mulher a ganhar um milhão de dólares.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popcornPreFooter"><img src="imagens/popcorn.png" alt=""></div>
+  
+  <footer>
+    <div class="footer content">
+      <div class="footer texto">
+        <p>Projeto desenvolvido por Gustavo Torres | 2026</p>
+        <p style="font-size: small;">Este projeto foi desenvolvido para fins acadêmicos e contém materiais audiovisuais
+          de propriedade da World Wrestling Entertainment, All Elite Wrestling, Total Nonstop Action, Brazilian
+          Wrestling Federation e outras companhias.</p>
+        <svg fill="#ffffff" width="35px" height="35px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+          data-name="Layer 1">
+          <path
+            d="M12,2.2467A10.00042,10.00042,0,0,0,8.83752,21.73419c.5.08752.6875-.21247.6875-.475,0-.23749-.01251-1.025-.01251-1.86249C7,19.85919,6.35,18.78423,6.15,18.22173A3.636,3.636,0,0,0,5.125,16.8092c-.35-.1875-.85-.65-.01251-.66248A2.00117,2.00117,0,0,1,6.65,17.17169a2.13742,2.13742,0,0,0,2.91248.825A2.10376,2.10376,0,0,1,10.2,16.65923c-2.225-.25-4.55-1.11254-4.55-4.9375a3.89187,3.89187,0,0,1,1.025-2.6875,3.59373,3.59373,0,0,1,.1-2.65s.83747-.26251,2.75,1.025a9.42747,9.42747,0,0,1,5,0c1.91248-1.3,2.75-1.025,2.75-1.025a3.59323,3.59323,0,0,1,.1,2.65,3.869,3.869,0,0,1,1.025,2.6875c0,3.83747-2.33752,4.6875-4.5625,4.9375a2.36814,2.36814,0,0,1,.675,1.85c0,1.33752-.01251,2.41248-.01251,2.75,0,.26251.1875.575.6875.475A10.0053,10.0053,0,0,0,12,2.2467Z" />
+        </svg>
+        <svg fill="#ffffff" width="35px" height="35px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+          data-name="Layer 1">
+          <path
+            d="M20.47,2H3.53A1.45,1.45,0,0,0,2.06,3.43V20.57A1.45,1.45,0,0,0,3.53,22H20.47a1.45,1.45,0,0,0,1.47-1.43V3.43A1.45,1.45,0,0,0,20.47,2ZM8.09,18.74h-3v-9h3ZM6.59,8.48h0a1.56,1.56,0,1,1,0-3.12,1.57,1.57,0,1,1,0,3.12ZM18.91,18.74h-3V13.91c0-1.21-.43-2-1.52-2A1.65,1.65,0,0,0,12.85,13a2,2,0,0,0-.1.73v5h-3s0-8.18,0-9h3V11A3,3,0,0,1,15.46,9.5c2,0,3.45,1.29,3.45,4.06Z" />
+        </svg>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
+
+<script>
+
+
+  function validarLogin() {
+    if (sessionStorage.NOME_USUARIO == undefined) {
+      username.innerHTML = `Usuário não autenticado`
+    } else {
+      if (sessionStorage.GENERO_USUARIO == `masculino`) {
+        username.innerHTML = `Bem-vindo, ${sessionStorage.NOME_USUARIO}`
+        navbarloginCadastro.style.display = "none";
+      } else {
+        username.innerHTML = `Bem-vinda, ${sessionStorage.NOME_USUARIO}`
+        navbarloginCadastro.style.display = "none";
+      }
+    }
+  }
+
+</script>

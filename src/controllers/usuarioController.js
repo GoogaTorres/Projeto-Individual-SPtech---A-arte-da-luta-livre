@@ -27,7 +27,8 @@ function autenticar(req, res) {
                                         id: resultadoAutenticar[0].id,
                                         email: resultadoAutenticar[0].email,
                                         nomeUsuario: resultadoAutenticar[0].nomeUsuario,
-                                        senha: resultadoAutenticar[0].senha
+                                        senha: resultadoAutenticar[0].senha,
+                                        genero: resultadoAutenticar[0].genero
                                     // });
                                 // } else {
                                     // res.status(204).json({ aquarios: [] });

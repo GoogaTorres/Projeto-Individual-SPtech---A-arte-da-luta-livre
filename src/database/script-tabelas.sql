@@ -86,14 +86,30 @@ liga VARCHAR(45)
 
 CREATE TABLE quiz (
 	idQuiz INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45)
+);
+
+CREATE TABLE quizRealizado (
+	idQuizRealizado INT AUTO_INCREMENT,
+		CONSTRAINT pkIdQuizRealizado PRIMARY KEY (idQuizRealizado, fkUsuario, fkQuiz),
 	fkUsuario INT,
 		CONSTRAINT const_fkUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
+	fkQuiz INT,
+		CONSTRAINT const_fkQuiz FOREIGN KEY (fkQuiz) REFERENCES quiz(idQuiz),
 	pontuacao INT,
-	dataHora DATETIME
+	dataHora DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+INSERT INTO quiz (nome) VALUES (
+	'Quiz da luta-livre'
+);
+
+
+SELECT * FROM quizRealizado;
 
 SELECT * FROM quiz;
 
-DROP TABLE usuario;
+SELECT COUNT(idQuiz) FROM quiz;
 
 SELECT * FROM usuario;
+

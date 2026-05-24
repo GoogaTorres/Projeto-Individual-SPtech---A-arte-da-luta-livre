@@ -19,13 +19,19 @@ function quizesRealizados(req, res) {
 }
 
 function exportar(req, res) {
+    var fkUsuario = req.body.fkUsuarioServer;
     var pontuacao = req.body.pontuacaoServer;
+    
 
     if (pontuacao == undefined) {
-        res.status(400).send("Seu nome está undefined!");
+        res.status(400).send("Sua pontuacao está undefined!");
     }
 
-    quizModel.exportar(pontuacao).then(function(resposta){
+    if (fkUsuario == undefined) {
+        res.status(400).send("Seu fkUsuario está undefined!");
+    }
+
+    quizModel.exportar(fkUsuario, 1, pontuacao).then(function(resposta){
         res.status(200).send("Quiz criado com sucesso");
     }).catch(function(erro){
         res.status(500).json(erro.sqlMessage);

@@ -19,7 +19,6 @@
         background-image: url(imagens/bg7.jpg);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: cover;
         overflow: hidden /* ESSE ELEMENTO É UTILIZADO PARA EVITAR SCROLL NA PÁGINA */
       }
 
@@ -29,22 +28,27 @@
     </style>
 
   </head>
-  <body>
-    <header>
-      <div class="box-header">
-        <div class="box-header-items">
-          <h1>A arte da luta-livre</h1>
-          <div class="box-header-description">
-            <p>
-              Luta livre, lucha libre, pro-wrestling, telecatch, puroresu... São
-              muitos nomes que definem essa arte, mas o seu universo é muito
-              mais profundo do que se imagina.
-            </p>
-
-          </div>
+ <body onload="validarLogin()">
+  <header>
+    <div class="box-header">
+      <div class="box-header-items">
+        <img src="imagens/logo.png" alt="" width="200px">
+        <div class="box-header-description">
+          <p>
+            Luta livre, lucha libre, pro-wrestling, telecatch, puroresu... São
+            muitos nomes que definem essa arte, mas o seu universo é muito
+            mais profundo do que se imagina.
+          </p>
         </div>
       </div>
-    </header>
+      <div id="user">
+      <span id="username">TESTE USUÁRIO</span> <span id="userIcon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+</svg></span>
+</div>
+    </div>
+  </header>
   <div class="navbar">
     <div class="navbar-items">
       <div class="navbar-item">
@@ -72,7 +76,7 @@
         <a href="">Monte o seu show</a>
       </div>
     </div>
-    <div class="navbar-loginCadastro">
+    <div class="navbarloginCadastro" id="navbarloginCadastro">
       <div class="navbar-item">
         <a href="login.html">Login</a>
       </div>
@@ -101,9 +105,15 @@
             <button onclick="proxPergunta()">Próxima pergunta</button>
           </div>
         </div>
-        <div class="cardQuizFinal content" id="cardQuizFinal" style="display: none;">
+
+        <div class="cardQuizFinal" id="cardQuizFinal" style="display: none;">
           <span id="msgQuizFinal"></span>
         </div>
+
+        <div class="cardQuizDeslogado" id="cardQuizDeslogado" style="display: none;">
+          <span id="msgQuizDeslogado">Você precisa se autenticar para jogar o quiz!<br><button onclick="logar()">Login</button><br><button onclick="cadastrar()">Cadastro</button></span>
+        </div>
+
       </div>
       
     </div>
@@ -132,6 +142,35 @@
 </html>
 
 <script>
+
+function validarLogin(){
+  if (sessionStorage.NOME_USUARIO == undefined){
+    username.innerHTML = `Usuário não autenticado`
+  } else {
+    if (sessionStorage.GENERO_USUARIO == `masculino`){
+      username.innerHTML = `Bem-vindo, ${sessionStorage.NOME_USUARIO}`
+      navbarloginCadastro.style.display = "none";
+    } else {
+      username.innerHTML = `Bem-vinda, ${sessionStorage.NOME_USUARIO}`
+      navbarloginCadastro.style.display = "none";
+    }
+  }
+
+
+  if (sessionStorage.NOME_USUARIO == undefined){
+    cardQuiz.style.display = "none";
+    cardQuizDeslogado.style.display = "flex";
+  }
+}
+
+  function logar(){
+    window.location = "./login.html";
+  }
+
+  function cadastrar(){
+    window.location = "./cadastro.html";
+  }
+
   const quiz = [
   {
     pergunta: `1 - O que significa o termo 'kayfabe'?`,
@@ -220,6 +259,7 @@
 
   var pontuacao = 0;
   let questao = 0;
+  var fkUsuario = sessionStorage.ID_USUARIO;
 
 // Inicialização do quiz com a pergunta inicial
 numPergunta.innerHTML = `Pergunta ${questao + 1} de ${quiz.length}`
@@ -262,8 +302,6 @@ function responder(){
     pontuacao++
   }
 
-
-
     if (questao == quiz.length){
       fimQuiz()
   } else {
@@ -272,14 +310,14 @@ function responder(){
     descricao.innerHTML = quiz[questao].descricao
     img.innerHTML = quiz[questao].imagem
   }
-
-  }
+}
 
   function fimQuiz(){
     cardResposta.style.display = "none";
     cardQuizPergunta.style.display = "none";
     cardQuizFinal.style.display = "flex";
     msgQuizFinal.innerHTML = `Quiz finalizado!<br>Você acertou ${pontuacao} de ${quiz.length} perguntas.<br><button onclick="tentarNovamente()">Tentar novamente</button>`
+    enviar();
 }
 
 function proxPergunta(){
@@ -300,7 +338,6 @@ function proxPergunta(){
 
 }
 
-
 function enviar(){
   // Enviando o valor da nova input
   fetch("/quiz/exportar", {
@@ -311,16 +348,18 @@ function enviar(){
     body: JSON.stringify({
       // crie um atributo que recebe o valor recuperado aqui
       // Agora vá para o arquivo routes/usuario.js
+      fkUsuarioServer: fkUsuario,
       pontuacaoServer: pontuacao
+      
     }),
   })
     .then(function (resposta) {
       console.log("resposta: ", resposta);
 
       if (resposta.ok) {
-        cardAlerta.style.display = "block";
-        cardAlerta.style.backgroundcolor = "olive";
-        cardAlerta.innerHTML = `Cadastro realizado com sucesso!`
+        // cardAlerta.style.display = "block";
+        // cardAlerta.style.backgroundcolor = "olive";
+        // cardAlerta.innerHTML = `Cadastro realizado com sucesso!`
 
         setTimeout(() => {
           window.location = "login.html";
@@ -354,44 +393,3 @@ function tentarNovamente(){
   alternativaE.innerHTML = quiz[0].alternativaE
 }
 </script>
-
-
-
-<!-- <script>
-  let pontuacao = 0;
-  let respondeu = false;
-  let resposta = ``;
-  let quiz = 0;
-
-  const perguntas = [
-    "Qual é o nome da atual maior liga de pro-wrestling do mundo?<br>a - TNA<br>b - WWE<br>c - WCW<br>d - AEW<br>e - NJPW",
-    "Quem quebrou a sequência de vitórias do Undertaker na Wrestlemania?<br>a - Kurt Angle<br>b - Randy Orton<br>c - Bray Wyatt<br>d - Shawn Michaels<br>e - Brock Lesnar",
-    "O que significa o termo 'kayfabe'?<br>a - Enredo<br>b - Personagem<br>c - Vilão<br>d - Mocinho<br>e - Rivalidade",
-    "O que significa o termo 'heel'?<br>a - Enredo<br>b - Personagem<br>c - Vilão<br>d - Mocinho<br>e - Rivalidade",
-    "Em que ano ocorreu a primeira Wrestlemania?<br>a - 1994<br>b - 1984<br>c - 1974<br>d - 1964<br>e - 1954",
-    "Em que ano ocorreu o primeiro e único evento da WWE no Brasil?<br>a - 2008<br>b - 2014<br>c - 2007<br>d - 2012<br>e - 2019",
-    "Qual é o nome da lutadora brasileira da AEW?<br>a - Valentina Feroz<br>b - Gabi Castrovinci<br>c - Angel Blake<br>d- Bianca<br>e - Taynara Guevara"
-  ];
-
-  const alternativas = [
-    
-  ]
-  const respostas = ['B', 'E', 'A', 'C', 'B', 'D', 'E'];
-
-  cardQuizPergunta.innerHTML = `${perguntas[quiz]}`
-
-  function responder(){
-    resposta = input_resposta.value;
-    resposta = resposta.toUpperCase();
-    if (resposta == respostas[quiz]){
-      pontuacao++
-    }
-    quiz++
-    if (quiz >= perguntas.length){
-      cardQuizPergunta.innerHTML = `Você acertou ${pontuacao}/${perguntas.length}`
-    } else {
-      cardQuizPergunta.innerHTML = `${perguntas[quiz]}`
-    }
-  }
-
-</script> -->
