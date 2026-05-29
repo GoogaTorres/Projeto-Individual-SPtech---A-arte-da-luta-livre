@@ -12,4 +12,12 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.get("/usuariosCadastrados", function (req, res) {
+    usuarioController.usuariosCadastrados(req, res);
+});
+
+router.get("/ligaFavorita", function (req, res) {
+    usuarioController.ligaFavorita(req, res);
+});
+
 module.exports = router;

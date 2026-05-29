@@ -14,15 +14,33 @@ body{
     text-shadow: 0px 2px 2px black;
     align-items: flex-end;
     justify-content: space-between;
+    background-image: url(../imagens/header.png);
 }
 
 .navbarloginCadastro{
     display: flex;
     height: 100%;
     background-image: linear-gradient(360deg, #0000002e, transparent);
+    cursor: pointer;
 }
 
 .navbarloginCadastro a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: "Francois One", sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbarSair{
+    display: flex;
+    height: 100%;
+    background-image: linear-gradient(360deg, #0000002e, transparent);
+    cursor: pointer;
+}
+
+.navbarSair a{
     text-decoration: none;
     color: rgb(0, 0, 0);
     font-family: "Francois One", sans-serif;
@@ -64,8 +82,6 @@ body{
     display: flex;
     height: 100%;
     background-image: linear-gradient(360deg, #0000002e, transparent);
-    /* justify-content: center; */
-    /* gap: 30px; */
 }
 
 .navbar-items a{
@@ -82,6 +98,10 @@ body{
 }
 
 .navbarloginCadastro a:hover {
+    color: rgb(202, 17, 17);
+}
+
+.navbarSair a:hover {
     color: rgb(202, 17, 17);
 }
     
@@ -135,14 +155,50 @@ body{
     background-size: cover;
 }
 
+#card3{
+    background-image: url(../imagens/luchalibre.webp);
+    background-size: cover;
+    background-position-y: -120px;
+}
+
+#card4{
+    background-image: url(../imagens/puroresu.jpg);
+    background-size: cover;
+    background-position-y: -180px;
+}
+
+#card5{
+    background-image: url(../imagens/telecatch.avif);
+    background-size: cover;
+    background-position-y: -200px;
+}
+
+#card6{
+    background-image: url(../imagens/goldenEra.jpg);
+    background-size: 125%;
+    background-position-y: -280px;
+    background-position-x: 1px;
+}
+
 #card7{
     background-image: url(../imagens/Monday-Night-Wars.jpg);
+}
+
+#card8{
+    background-image: url(../imagens/Diary_04062014rf_1784_No_Conf--07ce6c98cd50be9f1023b9b785c81dc9.jpg);
+    background-size: cover;
+    background-position-y: -120px;
+}
+
+#card9{
+    background-image: url(../imagens/therock.jpg);
+    background-size: cover; 
 }
 
 .card.main.mask{
     background-image: linear-gradient(90deg, #000000e0, #ffffff00);
     height: 100%;
-    width: 100%;
+    width: 60%;
 }
 
 /* #cardMainMask1{
@@ -267,13 +323,56 @@ footer{
 }
 
 .card.form{
-    background-color: #000000cc;
+    background-color: #000000a6;
     padding: 20px;
     width: 500px;
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-top: 150px;
+    margin-top: 50px;
+    border-width: 2px;
+    border-color: #f0f8ff61;
+    border-style: groove;
+    border-radius: 20px;
+    font-size: 15px;
+    backdrop-filter: blur(3px);
+}
+
+.card.form input{
+    border-radius: 10px;
+    border-style: none;
+    height: 30px;
+    width: 400px;
+    font-family: 'Francois One';
+    font-size: 16px;
+    padding-inline: 10px;
+}
+
+.card.form select{
+    height: 30px;
+    width: 400px;
+    font-family: 'Francois One';
+    font-size: 16px;
+    border-radius: 10px;
+    padding-inline: 10px;
+}
+
+.card.form button{
+    background-image: linear-gradient(360deg, #b1b1b1, #ffffff);
+    height: 40px;
+    width: 150px;
+    font-family: 'Francois One';
+    font-size: 16px;
+    font-weight: bolder;
+    border-radius: 10px;
+    border-style: none;
+    margin-block: 5px;
+}
+
+.card.form button:hover{
+    color: rgb(202, 17, 17);
+    border-style: solid;
+    border-color: rgb(202, 17, 17);
 }
 
 .card.formContent{
@@ -300,11 +399,15 @@ footer{
 
 .card.alerta {
     display: none;
-    background-color: aqua;
-    width: 200px;
+    background-color: #ab3535;
+    width: 500px;
     padding: 15px;
     margin-top: 10px;
     text-align: center;
+    font-family: 'Francois One';
+    color: white;
+    text-shadow: 2px 2px black;
+    border-radius: 10px;
 }
 /* FIM PÁGINA DE LOGIN  */
 
@@ -379,7 +482,10 @@ footer{
     color: white;
     text-shadow: 0px 2px 2px black;
     padding: 30px;
-    border-radius: 10px;
+    border-width: 2px;
+    border-color: #f0f8ff61;
+    border-style: groove;
+    border-radius: 20px;
     width: 450px;
 }
 
@@ -393,7 +499,10 @@ footer{
     color: white;
     text-shadow: 0px 2px 2px black;
     padding: 30px;
-    border-radius: 10px;
+    border-width: 2px;
+    border-color: #f0f8ff61;
+    border-style: groove;
+    border-radius: 20px;
     width: 450px;
     display: flex;
     font-size: larger;
@@ -425,7 +534,10 @@ footer{
     color: white;
     text-shadow: 0px 2px 2px black;
     padding: 30px;
-    border-radius: 10px;
+    border-width: 2px;
+    border-color: #f0f8ff61;
+    border-style: groove;
+    border-radius: 20px;
     width: 650px;
     display: flex;
     font-size: larger;
@@ -476,7 +588,10 @@ footer{
     color: white;
     text-shadow: 0px 2px 2px black;
     padding: 30px;
-    border-radius: 10px;
+    border-width: 2px;
+    border-color: #f0f8ff61;
+    border-style: groove;
+    border-radius: 20px;
     width: 650px;
     display: flex;
     font-size: larger;
@@ -575,4 +690,121 @@ footer{
 
 .popcornPreFooter img{
     width: 100%;
+}
+
+.bodyGlossario{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.bodyGlossarioContent{
+background-color: #ffffff30;
+    color: floralwhite;
+    text-shadow: 2px 2px 0px black;
+    font-family: 'Francois One';
+    padding: 20px;
+    width: 1000px;
+    border-width: 2px;
+    border-color: #f0f8ff61;
+    border-style: groove;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.bodyLigas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.cardLigas{
+    background: #4b4b4be8;
+    height: 400px;
+    width: 800px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Francois One';
+    color: antiquewhite;
+    text-shadow: 2px 2px #000000bf;
+    backdrop-filter: blur(3px);
+    font-size: larger;
+    border-width: 2px;
+    border-color: #f0f8ff61;
+    border-style: groove;
+    border-radius: 20px;
+}
+
+.logoLiga{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div1{
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bodyLutadores{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 50px;
+    gap: 50px;
+}
+
+.cardLutadores{
+    background: #4b4b4be8;
+    height: 200px;
+    width: 800px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    font-family: 'Francois One';
+    color: antiquewhite;
+    text-shadow: 2px 2px #000000bf;
+    backdrop-filter: blur(3px);
+    font-size: larger;
+    border-width: 2px;
+    border-color: #f0f8ff61;
+    border-style: groove;
+    border-radius: 20px;
+    flex-direction: row;
+    padding-inline: 50px;
+    gap: 30px;
+}
+
+.fotoLutador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lutadoresDiv1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.nomeLutador{
+    display: flex;
+    height: 30px;
+    align-items: center;
+}
+
+.fotoLutador img{
+    border-radius: 10px;
+    border-color: #ffffff94;
+    border-style: groove;
+    border-width: 2px;
 }

@@ -11,13 +11,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet" />
+  <script src="js/sessao.js"></script>
 </head>
 
 <body onload="validarLogin()">
   <header>
     <div class="box-header">
       <div class="box-header-items">
-        <img src="imagens/logo.png" alt="" width="200px">
+        <img src="imagens/logo.png" alt="" width="200px" />
         <div class="box-header-description">
           <p>
             Luta livre, lucha libre, pro-wrestling, telecatch, puroresu... São
@@ -27,11 +28,14 @@
         </div>
       </div>
       <div id="user">
-      <span id="username">TESTE USUÁRIO</span> <span id="userIcon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-</svg></span>
-</div>
+        <span id="username">TESTE USUÁRIO</span>
+        <span id="userIcon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+            <path fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+          </svg></span>
+      </div>
     </div>
   </header>
   <div class="navbar">
@@ -40,25 +44,22 @@
         <a href="index.html">Home</a>
       </div>
       <div class="navbar-item">
-        <a href="">Ligas</a>
+        <a href="ligas.html">Ligas</a>
       </div>
       <div class="navbar-item">
-        <a href="">Lutadores</a>
+        <a href="lutadores.html">Lutadores</a>
       </div>
       <div class="navbar-item">
-        <a href="">Glossário</a>
+        <a href="glossario.html">Glossário</a>
       </div>
       <div class="navbar-item">
-        <a href="">Filmes de Pro-Wrestling</a>
+        <a href="filmesSeries.html">Filmes e séries</a>
       </div>
       <div class="navbar-item">
         <a href="quiz.html">Quiz</a>
       </div>
       <div class="navbar-item">
-        <a href="">Que lutador sou eu?</a>
-      </div>
-      <div class="navbar-item">
-        <a href="">Monte o seu show</a>
+        <a href="dashboard.html">Dashboard</a>
       </div>
     </div>
     <div class="navbarloginCadastro" id="navbarloginCadastro">
@@ -69,6 +70,11 @@
         <a href="cadastro.html">Cadastro</a>
       </div>
     </div>
+    <div class="navbarSair" id="navbarSair" style="display: none;">
+      <div class="navbar-item">
+        <a onclick="limparSessao()">Sair</a>
+      </div>
+    </div>
   </div>
   <div class="card main" id="card1">
     <div class="card main mask" id="cardMainMask1">
@@ -76,215 +82,256 @@
         <div class="card text" id="cardText1">
           <h1>UM UNIVERSO EM QUE GIGANTES COMPETEM NO RINGUE</h1>
           <p>
-            A luta livre profissional é um fenômeno global composta pela mistura do atletismo, entretenimento e arte
-            cênica. Mais do que um esporte, é um espetáculo com grandes personagens cativantes que atingem milhões de
-            fãs
-            ao redor do mundo, principalmente nos Estados Unidos, México e Japão, atravessando diversas gerações.
-            <!-- <button onclick="teste()">Teste</button> -->
+            A luta livre profissional é um fenômeno global composta pela
+            mistura do atletismo, entretenimento e arte cênica. Mais do que um
+            esporte, é um espetáculo com grandes personagens cativantes que
+            atingem milhões de fãs ao redor do mundo, principalmente nos
+            Estados Unidos, México e Japão, atravessando diversas gerações.
+          </p>
         </div>
       </div>
     </div>
   </div>
   <div class="subcard" id="subcard1">
     <div class="subcard content" id="subCardContent1-1">
-      <div class="subcard image" id="subCardImg1-1">
-
-      </div>
+      <div class="subcard image" id="subCardImg1-1"></div>
       <div class="subcard text" id="subCardTxt1-1">
-        <p>Na luta livre, as rivalidades são compostas por mocinhos e vilões e são fundamentais para o desenvolvimento das histórias, que são motivadas por
-          desafios à títulos ou razões pessoais.</p>
+        <p>
+          Na luta livre, as rivalidades são compostas por mocinhos e vilões e
+          são fundamentais para o desenvolvimento das histórias, que são
+          motivadas por desafios à títulos ou razões pessoais.
+        </p>
       </div>
     </div>
     <div class="subcard content" id="subCardContent1-2">
-      <div class="subcard image" id="subCardImg1-2">
-
-      </div>
+      <div class="subcard image" id="subCardImg1-2"></div>
       <div class="subcard text" id="subCardTxt1-2">
-        <p>Diferente de outros esportes de contato físico, a luta-livre não se limita a um simples combate mano-a-mano.
-          É normal você ver corpos voando e um ringue com mesas, escadas e cadeiras.</p>
+        <p>
+          Diferente de outros esportes de contato físico, a luta-livre não se
+          limita a um simples combate mano-a-mano. É normal você ver corpos
+          voando e um ringue com mesas, escadas e cadeiras.
+        </p>
       </div>
     </div>
     <div class="subcard content" id="subCardContent1-3">
-      <div class="subcard image" id="subCardImg1-3">
-      </div>
+      <div class="subcard image" id="subCardImg1-3"></div>
       <div class="subcard text" id="subCardTxt1-3">
-        <p>As mulheres também dão um show! A brasileira Taynara Conti representa o Brasil lutando pela All Elite
-          Wrestling, além de muitas outras mulheres que vêm ganhando espaço nessa indústria.</p>
+        <p>
+          As mulheres também dão um show! A brasileira Taynara Conti
+          representa o Brasil lutando pela All Elite Wrestling, além de muitas
+          outras mulheres que vêm ganhando espaço nessa indústria.
+        </p>
       </div>
     </div>
     <div class="subcard content" id="subCardContent1-4">
-      <div class="subcard image" id="subCardImg1-4">
-
-      </div>
+      <div class="subcard image" id="subCardImg1-4"></div>
       <div class="subcard text" id="subCardTxt1-4">
-        <p>Personagens são parte fundamental da luta-livre e ajudam a contar uma história. O Undertaker é o maior
-          exemplo de como um personagem pode fazer toda a diferença no enredo.</p>
+        <p>
+          Personagens são parte fundamental da luta-livre e ajudam a contar
+          uma história. O Undertaker é o maior exemplo de como um personagem
+          pode fazer toda a diferença no enredo.
+        </p>
       </div>
     </div>
   </div>
   <div class="card main" id="card2">
     <div class="card main mask" id="cardMainMask2">
       <div class="card content">
-        <!-- <div class="card image" id="cardImage1">
-          <div class="img" id="img2" style="background-position-x: -100px;"></div>
-        </div> -->
         <div class="card text">
           <h1>ORIGEM</h1>
           <p>
-            Tudo começou nas feiras itinerantes do século XIX, onde lutadores já encenavam combates combinados para
-            entreter o público — e promotores chegavam a plantar "desafiantes" na plateia para criar drama e movimentar
-            apostas.
-            Nos anos 1920, o chamado Gold Dust Trio (Ed Lewis, Billy Sandow e Toots Mondt) formalizou essa teatralidade:
-            criaram roteiros, coordenaram resultados entre territórios e substituíram a luta real por golpes espetaculares
-            calculados para arrancar reação da plateia. Mondt foi, na prática, o primeiro booker da história.
-            Nos anos 1930, os personagens se consolidaram — heróis (faces) e vilões (heels) passaram a ser arquétipos
-            fixos, com cowboys, aristocratas e lutadores étnicos encarnando os valores e medos do público. Na Segunda
-            Guerra, alemães e japoneses eram os vilões do ringue. Na Guerra Fria, os soviéticos assumiram o papel.
+            Tudo começou nas feiras itinerantes do século XIX, onde lutadores
+            já encenavam combates combinados para entreter o público — e
+            promotores chegavam a plantar "desafiantes" na plateia para criar
+            drama e movimentar apostas. Nos anos 1920, o chamado Gold Dust
+            Trio (Ed Lewis, Billy Sandow e Toots Mondt) formalizou essa
+            teatralidade: criaram roteiros, coordenaram resultados entre
+            territórios e substituíram a luta real por golpes espetaculares
+            calculados para arrancar reação da plateia. Mondt foi, na prática,
+            o primeiro booker da história. Nos anos 1930, os personagens se
+            consolidaram — heróis (faces) e vilões (heels) passaram a ser
+            arquétipos fixos, com cowboys, aristocratas e lutadores étnicos
+            encarnando os valores e medos do público. Na Segunda Guerra,
+            alemães e japoneses eram os vilões do ringue. Na Guerra Fria, os
+            soviéticos assumiram o papel.
+          </p>
         </div>
       </div>
     </div>
   </div>
   <div class="card main" id="card3">
-    <div class="card content">
-      <!-- <div class="card image">
-        <div class="img" style="background-position-x: -100px;"></div>
-      </div> -->
-      <div class="card text">
-        <h1>LUCHA LIBRE</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-          illum recusandae exercitationem facere necessitatibus enim adipisci
-          iusto eos fugiat, et atque explicabo consequatur sequi, qui quae,
-          repellendus quidem. Quos blanditiis fugiat quia non. Ipsa optio quia
-          deleniti eveniet libero earum nam, nulla officia obcaecati. Beatae
-          velit nulla modi mollitia aliquid iste. Voluptatum delectus fugit
-          sunt reprehenderit cum quae. Quas quod provident hic repellendus
-          minima cupiditate aspernatur quis rem dolores saepe, ex praesentium
-          voluptates.
+    <div class="card main mask" id="cardMainMask3">
+      <div class="card content">
+        <!-- <div class="card image">
+          <div class="img" style="background-position-x: -100px;"></div>
+        </div> -->
+        <div class="card text">
+          <h1>LUCHA LIBRE</h1>
+          <p>
+            Lucha libre (em português: luta livre) é um termo usado no México
+            e em outras áreas em que a língua espanhola é falada, para se
+            referir a uma forma de wrestling profissional, envolvendo várias
+            técnicas e movimentos. Fora dessa área, o termo lucha libre é
+            sinônimo do wrestling profissional com performances no México e em
+            outras cidades latino-americanas. O wrestling mexicano é
+            caracterizado pela rápida seqüência de holds e movimentos aéreos,
+            como bem os espetaculares "high-flying moves"; muitos destes sendo
+            adaptados e utilizados nos Estados Unidos. Outro ponto de destaque
+            da lucha libre são as máscaras, em geral coloridas.
+          </p>
+        </div>
       </div>
     </div>
   </div>
   <div class="card main" id="card4">
-    <div class="card content">
-      <!-- <div class="card image">
-        <div class="img" style="background-position-x: -100px;"></div>
-      </div> -->
-      <div class="card text">
-        <h1>PURORESU</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-          illum recusandae exercitationem facere necessitatibus enim adipisci
-          iusto eos fugiat, et atque explicabo consequatur sequi, qui quae,
-          repellendus quidem. Quos blanditiis fugiat quia non. Ipsa optio quia
-          deleniti eveniet libero earum nam, nulla officia obcaecati. Beatae
-          velit nulla modi mollitia aliquid iste. Voluptatum delectus fugit
-          sunt reprehenderit cum quae. Quas quod provident hic repellendus
-          minima cupiditate aspernatur quis rem dolores saepe, ex praesentium
-          voluptates.
+    <div class="card main mask" id="cardMainMask4">
+      <div class="card content">
+        <!-- <div class="card image">
+          <div class="img" style="background-position-x: -100px;"></div>
+        </div> -->
+        <div class="card text">
+          <h1>PURORESU</h1>
+          <p>
+            Puroresu (プロレス) é o estilo japonês e asiático de luta
+            profissional, chamado assim pela junção das palavras
+            "purofesshonaru resuringu" (forma romanizada de "professional
+            wrestling", em japonês, ou "luta profissional", em português). A
+            palavra "Puroresu" foi popularizada por Hisaharu Tanabe na década
+            de 1990. A principal diferença entre o Puroresu e o wrestling
+            tradicional dos Estados Unidos da América, é que o puroresu é
+            tratado como um esporte de combate, com misturas de artes
+            marciais, contato físico e movimentos mais complexos e perigosos
+            do que outros tipos de wrestling, como o Submission e o Amador.
+          </p>
+        </div>
       </div>
     </div>
   </div>
   <div class="card main" id="card5">
-    <div class="card content">
-      <!-- <div class="card image">
-        <div class="img" style="background-position-x: -100px;"></div>
-      </div> -->
-      <div class="card text">
-        <h1>TELECATCH</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-          illum recusandae exercitationem facere necessitatibus enim adipisci
-          iusto eos fugiat, et atque explicabo consequatur sequi, qui quae,
-          repellendus quidem. Quos blanditiis fugiat quia non. Ipsa optio quia
-          deleniti eveniet libero earum nam, nulla officia obcaecati. Beatae
-          velit nulla modi mollitia aliquid iste. Voluptatum delectus fugit
-          sunt reprehenderit cum quae. Quas quod provident hic repellendus
-          minima cupiditate aspernatur quis rem dolores saepe, ex praesentium
-          voluptates.
+    <div class="card main mask" id="cardMainMask5">
+      <div class="card content">
+        <div class="card text">
+          <h1>TELECATCH</h1>
+          <p>
+            Telecatch foi um programa de televisão criado na extinta TV
+            Excelsior Rio de Janeiro , dedicado à exibição de combates de
+            luta-livre que combinavam encenação teatral , combate e circo .
+            Com a extinção do Palácio de Alumínio (uma cúpula de metal
+            dedicada à exibição de combates corpo a corpo), um dos
+            protagonistas da rede de lojas Imperatriz das Sedas (cuja sede era
+            vizinha ao palácio montado no terreno do bombeiros tesouro
+            nacional - doado aos comerciários) e um dos sócios da empresa, "Sr
+            Rafick", resolveu promover um programa de lutas livres (via
+            televisão) e cuja modalidade era o Tele-catch. Durante a década de
+            1960 , alcançou o auge do sucesso, criando vários heróis, como Ted
+            Boy Marino , Aquiles , Fantomas , etc.
+          </p>
+        </div>
       </div>
     </div>
   </div>
   <div class="card main" id="card6">
-    <div class="card content">
-      <!-- <div class="card image">
-        <div class="img" style="background-position-x: -100px;"></div>
-      </div> -->
-      <div class="card text">
-        <h1>ERA DE OURO</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-          illum recusandae exercitationem facere necessitatibus enim adipisci
-          iusto eos fugiat, et atque explicabo consequatur sequi, qui quae,
-          repellendus quidem. Quos blanditiis fugiat quia non. Ipsa optio quia
-          deleniti eveniet libero earum nam, nulla officia obcaecati. Beatae
-          velit nulla modi mollitia aliquid iste. Voluptatum delectus fugit
-          sunt reprehenderit cum quae. Quas quod provident hic repellendus
-          minima cupiditate aspernatur quis rem dolores saepe, ex praesentium
-          voluptates.
+    <div class="card main mask" id="cardMainMask6">
+      <div class="card content">
+        <div class="card text">
+          <h1>ERA DE OURO</h1>
+          <p>
+            A "Era de Ouro" da WWE ocorreu entre 1982 e o início dos anos
+            1990. Marcada pela expansão global da empresa liderada por Vince
+            McMahon, a época transformou o wrestling profissional em um
+            fenômeno cultural de massa, impulsionada por personagens heroicos,
+            carismáticos e produções televisivas dinâmicas.
+            <br /><br />
+            Hulkamania: O fenômeno cultural foi construído em torno de Hulk
+            Hogan, que se tornou o principal rosto da empresa e símbolo global
+            do esporte.
+            <br /><br />
+            Gigantes e Lendas: O período foi marcado por personalidades
+            maiores que a vida, como André the Giant, "Macho Man" Randy
+            Savage, The Ultimate Warrior, Roddy Piper e Jake "The Snake"
+            Roberts.
+            <br /><br />
+            Nascimento da WrestleMania: A expansão de Vince McMahon resultou
+            na criação da WrestleMania em 1985, um megaevento que mudou a
+            história do entretenimento esportivo ao misturar cultura pop e
+            luta livre.
+            <br /><br />
+            Transição de Territórios para TV: A WWF abandonou o antigo sistema
+            de confederações regionais de luta nos EUA para se tornar um
+            império nacional transmitido pela televisão.
+          </p>
+        </div>
       </div>
     </div>
   </div>
   <div class="card main" id="card7">
-    <div class="card content">
-      <!-- <div class="card image">
-        <div class="img" id="img7" style="background-position-x: -100px;"></div>
-      </div> -->
-      <div class="card text">
-        <h1>A GUERRA DA SEGUNDA-FEIRA</h1>
-        <p>
-          Com o fim da era de ouro, a indústria da luta-livre americana começou a declinar, principalmente com a saída
-          de grandes nomes da WWE, como Hulk Hogan. Durante esse período, a WCW passou a ganhar espaço e entrou na
-          competição contratando grandes estrelas da WWE, como Hulk Hogan, Scott Hall, Kevin Nash, Randy Savage, Lex
-          Luger e outros atletas. Com a necessidade de inovação, a WWE mudou o seu produto, tomando um rumo mais rebelde
-          e jovem, que ficou conhecido como "a era Attitude", o que levou a WWE declarar guerra direta à sua concorrente
-          com o programa "Raw is War". A luta-livre alcançou o seu ápice de popularidade nos Estados Unidos na década de
-          1990 quando duas gigantes,
-          WWE e WCW, passaram a disputar telespectadores toda segunda-feira à noite. Esse período ficou conhecido como
-          "A guerra da segunda-feira" em que a WWE promovia o programa Monday Night Raw e a WCW promovia o Monday Night
-          Nitro simultaneamente. Do lado da WWE, os shows eram comandados por grandes superastros como The Rock, Stone
-          Cold Steven Austin, Undertaker, Triple H, Mankind, Chyna, Trish Stratus, Kane, Chris Jericho, Kurt Angle e
-          outros. Enquanto a WCW era comandada por Hulk Hogan, Goldberg, Sting, Kevin Nash, Scot Hall, Booker T e muitos
-          outros.
+    <div class="card main mask" id="cardMainMask7">
+      <div class="card content">
+        <div class="card text">
+          <h1>A GUERRA DA SEGUNDA-FEIRA</h1>
+          <p>
+            Com o fim da era de ouro, a indústria da luta-livre americana
+            começou a declinar, principalmente com a saída de grandes nomes da
+            WWE, como Hulk Hogan. Durante esse período, a WCW passou a ganhar
+            espaço e entrou na competição contratando grandes estrelas da WWE,
+            como Hulk Hogan, Scott Hall, Kevin Nash, Randy Savage, Lex Luger e
+            outros atletas. Com a necessidade de inovação, a WWE mudou o seu
+            produto, tomando um rumo mais rebelde e jovem, que ficou conhecido
+            como "a era Attitude", o que levou a WWE declarar guerra direta à
+            sua concorrente com o programa "Raw is War". A luta-livre alcançou
+            o seu ápice de popularidade nos Estados Unidos na década de 1990
+            quando duas gigantes, WWE e WCW, passaram a disputar
+            telespectadores toda segunda-feira à noite. Esse período ficou
+            conhecido como "A guerra da segunda-feira" em que a WWE promovia o
+            programa Monday Night Raw e a WCW promovia o Monday Night Nitro
+            simultaneamente. Do lado da WWE, os shows eram comandados por
+            grandes superastros como The Rock, Stone Cold Steven Austin,
+            Undertaker, Triple H, Mankind, Chyna, Trish Stratus, Kane, Chris
+            Jericho, Kurt Angle e outros. Enquanto a WCW era comandada por
+            Hulk Hogan, Goldberg, Sting, Kevin Nash, Scot Hall, Booker T e
+            muitos outros.
+          </p>
+        </div>
       </div>
     </div>
   </div>
   <div class="card main" id="card8">
-    <div class="card content">
-      <!-- <div class="card image">
-        <div class="img" style="background-position-x: -100px;"></div>
-      </div> -->
-      <div class="card text">
-        <h1>FENÔMENO MUNDIAL</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-          illum recusandae exercitationem facere necessitatibus enim adipisci
-          iusto eos fugiat, et atque explicabo consequatur sequi, qui quae,
-          repellendus quidem. Quos blanditiis fugiat quia non. Ipsa optio quia
-          deleniti eveniet libero earum nam, nulla officia obcaecati. Beatae
-          velit nulla modi mollitia aliquid iste. Voluptatum delectus fugit
-          sunt reprehenderit cum quae. Quas quod provident hic repellendus
-          minima cupiditate aspernatur quis rem dolores saepe, ex praesentium
-          voluptates.
+    <div class="card main mask" id="cardMainMask8">
+      <div class="card content">
+        <div class="card text">
+          <h1>FENÔMENO MUNDIAL</h1>
+          <p>
+            A WWE venceu a guerra da segunda-feira e se tornou proprietária da
+            WCW, marcando o fim e o início de uma nova era, expandindo a sua
+            marca globalmente. Durante esse período surgiram grandes nomes
+            como John Cena, Randy Orton, Rey Mysterio, Brock Lesnar e muitos
+            outros.<br /><br />
+            A expansão global da WWE também aqueceu a indústria da luta-livre,
+            com o surgimento de empresas como TNA e posteriormente a AEW, que
+            hoje é a principal concorrente da WWE.
+          </p>
+        </div>
       </div>
     </div>
   </div>
   <div class="card main" id="card9">
-    <div class="card content">
-      <!-- <div class="card image">
-        <div class="img" style="background-position-x: -100px;"></div>
-      </div> -->
-      <div class="card text">
-        <h1>LUTA LIVRE É FALSA?</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-          illum recusandae exercitationem facere necessitatibus enim adipisci
-          iusto eos fugiat, et atque explicabo consequatur sequi, qui quae,
-          repellendus quidem. Quos blanditiis fugiat quia non. Ipsa optio quia
-          deleniti eveniet libero earum nam, nulla officia obcaecati. Beatae
-          velit nulla modi mollitia aliquid iste. Voluptatum delectus fugit
-          sunt reprehenderit cum quae. Quas quod provident hic repellendus
-          minima cupiditate aspernatur quis rem dolores saepe, ex praesentium
-          voluptates.
+    <div class="card main mask" id="cardMainMask8">
+      <div class="card content">
+        <div class="card text">
+          <h1>LUTA LIVRE É FALSA?</h1>
+          <p>
+            Sim e não. A luta livre deve ser interpretada como um espetáculo
+            com resultados combinados, mas não necessariamente é falso, pois
+            não é vendido como um esporte real, mas sim, entretenimento, ou
+            seja, podemos interpretar a luta-livre como um filme ou série em
+            que podemos assistir pessoalmente em uma arena.<br /><br />
+            Embora a luta-livre seja "combinada", os impactos e os riscos
+            físicos são reais, tendo a indústria da luta-livre um grande
+            histórico de lesões de atletas. Muitas vezes sangramentos são
+            forjados pelos atletas que podem usar uma lâmina ou usar uma bolsa
+            com sangue artificial.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -292,9 +339,12 @@
     <div class="footer content">
       <div class="footer texto">
         <p>Projeto desenvolvido por Gustavo Torres | 2026</p>
-        <p style="font-size: small;">Este projeto foi desenvolvido para fins acadêmicos e contém materiais audiovisuais
-          de propriedade da World Wrestling Entertainment, All Elite Wrestling, Total Nonstop Action, Brazilian
-          Wrestling Federation e outras companhias.</p>
+        <p style="font-size: small">
+          Este projeto foi desenvolvido para fins acadêmicos e contém
+          materiais audiovisuais de propriedade da World Wrestling
+          Entertainment, All Elite Wrestling, Total Nonstop Action, Brazilian
+          Wrestling Federation e outras companhias.
+        </p>
         <svg fill="#ffffff" width="35px" height="35px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
           data-name="Layer 1">
           <path
@@ -308,26 +358,24 @@
       </div>
     </div>
   </footer>
-
 </body>
 
 </html>
 
-<script>  
-  
-  
-function validarLogin(){
-  if (sessionStorage.NOME_USUARIO == undefined){
-    username.innerHTML = `Usuário não autenticado`
-  } else {
-    if (sessionStorage.GENERO_USUARIO == `masculino`){
-      username.innerHTML = `Bem-vindo, ${sessionStorage.NOME_USUARIO}`
-      navbarloginCadastro.style.display = "none";
+<script>
+  function validarLogin() {
+    if (sessionStorage.NOME_USUARIO == undefined) {
+      username.innerHTML = `Usuário não autenticado`;
     } else {
-      username.innerHTML = `Bem-vinda, ${sessionStorage.NOME_USUARIO}`
-      navbarloginCadastro.style.display = "none";
+      if (sessionStorage.GENERO_USUARIO == `masculino`) {
+        username.innerHTML = `Bem-vindo, ${sessionStorage.NOME_USUARIO}`;
+        navbarloginCadastro.style.display = "none";
+        navbarSair.style.display = "block"
+      } else {
+        username.innerHTML = `Bem-vinda, ${sessionStorage.NOME_USUARIO}`;
+        navbarloginCadastro.style.display = "none";
+        navbarSair.style.display = "block"
+      }
     }
   }
-}
-
 </script>

@@ -27,7 +27,7 @@
          position: absolute; /*A POSITION ABSOLUTE SÓ SERÁ USADA QUANDO A PÁGINA NÃO TIVER ROLAGEM*/
       }
     </style>
-
+  <script src="js/sessao.js"></script>
   </head>
   <body onload="validarLogin()">
   <header>
@@ -50,31 +50,28 @@
 </div>
     </div>
   </header>
-    <div class="navbar">
+  <div class="navbar">
     <div class="navbar-items">
       <div class="navbar-item">
         <a href="index.html">Home</a>
       </div>
       <div class="navbar-item">
-        <a href="">Ligas</a>
+        <a href="ligas.html">Ligas</a>
       </div>
       <div class="navbar-item">
-        <a href="">Lutadores</a>
+        <a href="lutadores.html">Lutadores</a>
       </div>
       <div class="navbar-item">
-        <a href="">Glossário</a>
+        <a href="glossario.html">Glossário</a>
       </div>
       <div class="navbar-item">
-        <a href="">Filmes de Pro-Wrestling</a>
+        <a href="filmesSeries.html">Filmes e séries</a>
       </div>
       <div class="navbar-item">
         <a href="quiz.html">Quiz</a>
       </div>
       <div class="navbar-item">
-        <a href="">Que lutador sou eu?</a>
-      </div>
-      <div class="navbar-item">
-        <a href="">Monte o seu show</a>
+        <a href="dashboard.html">Dashboard</a>
       </div>
     </div>
     <div class="navbarloginCadastro" id="navbarloginCadastro">
@@ -83,6 +80,11 @@
       </div>
       <div class="navbar-item">
         <a href="cadastro.html">Cadastro</a>
+      </div>
+    </div>
+    <div class="navbarSair" id="navbarSair" style="display: none;">
+      <div class="navbar-item">
+        <a onclick="limparSessao()">Sair</a>
       </div>
     </div>
   </div>
@@ -111,6 +113,7 @@
             <option>WWE</option>
             <option>AEW</option>
             <option>TNA</option>
+            <option>CMLL</option>
             <option>BWF</option>
             <option>NJPW</option>
             <option>WCW</option>
@@ -209,19 +212,21 @@
 </html>
 <script>
 
-  function validarLogin(){
-  if (sessionStorage.NOME_USUARIO == undefined){
-    username.innerHTML = `Usuário não autenticado`
-  } else {
-    if (sessionStorage.GENERO_USUARIO == `masculino`){
-      username.innerHTML = `Bem-vindo, ${sessionStorage.NOME_USUARIO}`
-      navbarloginCadastro.style.display = "none";
+  function validarLogin() {
+    if (sessionStorage.NOME_USUARIO == undefined) {
+      username.innerHTML = `Usuário não autenticado`;
     } else {
-      username.innerHTML = `Bem-vinda, ${sessionStorage.NOME_USUARIO}`
-      navbarloginCadastro.style.display = "none";
+      if (sessionStorage.GENERO_USUARIO == `masculino`) {
+        username.innerHTML = `Bem-vindo, ${sessionStorage.NOME_USUARIO}`;
+        navbarloginCadastro.style.display = "none";
+        navbarSair.style.display = "block"
+      } else {
+        username.innerHTML = `Bem-vinda, ${sessionStorage.NOME_USUARIO}`;
+        navbarloginCadastro.style.display = "none";
+        navbarSair.style.display = "block"
+      }
     }
   }
-}
 
   // Array para armazenar empresas cadastradas para validação de código de ativação 
   // let listaEmpresasCadastradas = [];
@@ -286,7 +291,7 @@
 
                         if (resposta.ok) {
                           cardAlerta.style.display = "block";
-                          cardAlerta.style.backgroundcolor = "olive";
+                          cardAlerta.style.backgroundColor = "#35ab54";
                           cardAlerta.innerHTML = `Cadastro realizado com sucesso!`
 
                           setTimeout(() => {
@@ -306,7 +311,6 @@
 
                     return false;
                   }
-
               }
             } 
           }

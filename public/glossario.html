@@ -11,6 +11,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet" />
+
+    <style>
+      body{
+        background-image: url(imagens/bgGlossario.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      footer{
+         position: absolute; /*A POSITION ABSOLUTE SÓ SERÁ USADA QUANDO A PÁGINA NÃO TIVER ROLAGEM*/
+      }
+    </style>
+    <script src="js/sessao.js"></script>
 </head>
 
 <body onload="validarLogin()">
@@ -40,25 +54,22 @@
         <a href="index.html">Home</a>
       </div>
       <div class="navbar-item">
-        <a href="">Ligas</a>
+        <a href="ligas.html">Ligas</a>
       </div>
       <div class="navbar-item">
-        <a href="">Lutadores</a>
+        <a href="lutadores.html">Lutadores</a>
       </div>
       <div class="navbar-item">
-        <a href="">Glossário</a>
+        <a href="glossario.html">Glossário</a>
       </div>
       <div class="navbar-item">
-        <a href="">Filmes de Pro-Wrestling</a>
+        <a href="filmesSeries.html">Filmes e séries</a>
       </div>
       <div class="navbar-item">
         <a href="quiz.html">Quiz</a>
       </div>
       <div class="navbar-item">
-        <a href="">Que lutador sou eu?</a>
-      </div>
-      <div class="navbar-item">
-        <a href="">Monte o seu show</a>
+        <a href="dashboard.html">Dashboard</a>
       </div>
     </div>
     <div class="navbarloginCadastro" id="navbarloginCadastro">
@@ -69,19 +80,25 @@
         <a href="cadastro.html">Cadastro</a>
       </div>
     </div>
+    <div class="navbarSair" id="navbarSair" style="display: none;">
+      <div class="navbar-item">
+        <a onclick="limparSessao()">Sair</a>
+      </div>
+    </div>
   </div>
 
   <div class="bodyGlossario">
     <div class="bodyGlossarioContent">
       <h1>Glossário</h1>
       <h3>Na luta-livre, existem muitos termos que não são ditos na televisão mas são utilizados nos bastidores, entre jornalistas e fãs. Nesse glossário, você conhecerá os principais termos.</h3>
-      <b>Kayfabe: </b>Todo evento ou fato que acontece dentro da ficção da luta-livre. Por exemplo: Na kayfabe, Undertaker e Kane são irmãos, mas não na vida real.<br>
+      <b>Kayfabe: </b>Todo tipo de acontecimento ou fato dentro da ficção da luta-livre. Por exemplo: Na kayfabe, Undertaker e Kane são irmãos, mas não na vida real.<br>
       <b>Babyface: </b>Lutador que atua como herói/mocinho.<br>
       <b>Heel: </b>Lutador que atua como vilão<br>
       <b>Tweener: </b>Lutador que atua tanto como herói quanto vilão ao mesmo tempo.<br>
-      <b>Promo: </b>Discurso entre um ou mais lutadores no ringue para promover um combate.<br>
-      <b>Work: </b>Termo utilizado para designar quando algum fato ocorre dentro da kayfabe. Por exemplo: Uma falsa lesão de um lutador que faz parte do enredo.<br>
-      <b>Shoot: </b>Evento real não planejado dentro da ficção, como um discurso fora do roteiro.<br>
+      <b>Promo/Segment: </b>Debate entre um ou mais lutadores no ringue para promover um combate.<br>
+      <b>Sell/Selling: </b>Ato de um lutador "vender" um golpe, ou seja, levar esse golpe. A venda do golpe se dá pelas quedas e atuação de dor.<br>
+      <b>Work: </b>Termo utilizado para designar quando algum evento ocorre dentro da kayfabe. Por exemplo: Uma falsa lesão de um lutador que faz parte do enredo.<br>
+      <b>Shoot: </b>Evento real não planejado dentro da ficção, como um discurso fora do roteiro ou que aborde algum tema na vida real.<br>
       <b>Face turn/Heel turn: </b>O ato de um lutador assumir uma nova postura como herói(face) ou vilão(heel).<br>
       <b>Gimmick: </b>Personagem e características de um lutador.<br>
       <b>Botch: </b>Um erro na execução de algum movimento ou qualquer falha inesperada no espetáculo.<br>
@@ -89,7 +106,6 @@
       <b>Jobber: </b>Lutador de pouco destaque que costuma perder em combates para elevar outro lutador de destaque.<br>
       <b>Main eventer: </b>Lutador de destaque que costuma vencer combates e está no topo do card. Geralmente são lutadores que disputam títulos e estão em rivalidades de destaque.<br>
       <b>Push: </b>Promoção de um lutador no card. O card se divide em: Low-card; Mid-card; Upper-mid-card e Main Eventer.<br>
-      <b>Sell/Selling: </b>Ato de um lutador "vender" um golpe, ou seja, levar esse golpe. A venda do golpe se dá pelas quedas e atuação de dor.<br>
     </div>
   </div>
 
@@ -121,18 +137,20 @@
 <script>  
   
   
-function validarLogin(){
-  if (sessionStorage.NOME_USUARIO == undefined){
-    username.innerHTML = `Usuário não autenticado`
-  } else {
-    if (sessionStorage.GENERO_USUARIO == `masculino`){
-      username.innerHTML = `Bem-vindo, ${sessionStorage.NOME_USUARIO}`
-      navbarloginCadastro.style.display = "none";
+  function validarLogin() {
+    if (sessionStorage.NOME_USUARIO == undefined) {
+      username.innerHTML = `Usuário não autenticado`;
     } else {
-      username.innerHTML = `Bem-vinda, ${sessionStorage.NOME_USUARIO}`
-      navbarloginCadastro.style.display = "none";
+      if (sessionStorage.GENERO_USUARIO == `masculino`) {
+        username.innerHTML = `Bem-vindo, ${sessionStorage.NOME_USUARIO}`;
+        navbarloginCadastro.style.display = "none";
+        navbarSair.style.display = "block"
+      } else {
+        username.innerHTML = `Bem-vinda, ${sessionStorage.NOME_USUARIO}`;
+        navbarloginCadastro.style.display = "none";
+        navbarSair.style.display = "block"
+      }
     }
   }
-}
 
 </script>

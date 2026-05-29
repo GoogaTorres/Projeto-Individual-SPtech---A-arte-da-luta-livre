@@ -15,7 +15,7 @@ router.get("/importar", function (req, res) {
 
 router.get("/quizesRealizados", function (req, res) {
     // FUNÇÃO PARA RECEBER DADOS
-    quizController.importar(req, res);
+    quizController.quizesRealizados(req, res);
 });
 
 module.exports = router;

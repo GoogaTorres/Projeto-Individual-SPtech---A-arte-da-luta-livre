@@ -22,7 +22,26 @@ function cadastrar(nomeUsuario, email, genero, senha, lutadorFavorito, liga) {
     return database.executar(instrucaoSql);
 }
 
+function usuariosCadastrados() {
+    var instrucao = `
+        SELECT COUNT(id) AS 'usuarios_cadastrados' FROM usuario;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);    
+}
+
+function ligaFavorita(){
+    var instrucao = `
+        SELECT liga, COUNT(liga) AS 'contagem' FROM usuario  GROUP BY liga ORDER BY liga;
+    `
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);    
+}
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    usuariosCadastrados,
+    ligaFavorita
 };

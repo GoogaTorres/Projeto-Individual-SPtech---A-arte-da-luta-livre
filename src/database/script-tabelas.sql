@@ -104,8 +104,11 @@ INSERT INTO quiz (nome) VALUES (
 	'Quiz da luta-livre'
 );
 
+SELECT usuario.nomeUsuario, quizRealizado.pontuacao, dataHora FROM quizRealizado JOIN usuario ON quizRealizado.fkUsuario = usuario.id;
 
 SELECT * FROM quizRealizado;
+
+SELECT COUNT(idQuizRealizado) FROM quizRealizado;
 
 SELECT * FROM quiz;
 
@@ -113,3 +116,30 @@ SELECT COUNT(idQuiz) FROM quiz;
 
 SELECT * FROM usuario;
 
+SELECT COUNT(idQuizRealizado) AS 'quizes_realizados' FROM quizRealizado;
+
+SELECT COUNT(id) FROM usuario;
+
+SELECT liga, COUNT(genero) AS 'contagem' FROM usuario WHERE genero = 'masculino' GROUP BY liga ORDER BY liga DESC;
+SELECT liga, COUNT(genero) AS 'contagem' FROM usuario WHERE genero = 'feminino' GROUP BY liga ORDER BY liga DESC;
+
+SELECT liga, (SELECT COUNT(genero) FROM usuario WHERE genero = 'feminino' GROUP BY liga) as 'feminino', (SELECT COUNT(genero) FROM usuario WHERE genero = 'masculino' GROUP BY liga) AS 'masculino'
+FROM usuario GROUP BY liga ORDER BY liga;
+
+SELECT COUNT(id) AS 'Contagem' FROM usuario WHERE liga = 'WWE' AND genero = 'masculino';
+SELECT COUNT(id) FROM usuario WHERE liga = 'WWE' AND genero = 'feminino';
+
+SELECT COUNT(id) FROM usuario WHERE liga = 'AEW' AND genero = 'masculino';
+SELECT COUNT(id) FROM usuario WHERE liga = 'AEW' AND genero = 'feminino';
+
+SELECT COUNT(id) FROM usuario WHERE liga = 'TNA' AND genero = 'masculino';
+SELECT COUNT(id) FROM usuario WHERE liga = 'TNA' AND genero = 'feminino';
+
+SELECT COUNT(id) FROM usuario WHERE liga = 'NJPW' AND genero = 'masculino';
+SELECT COUNT(id) FROM usuario WHERE liga = 'NJPW' AND genero = 'feminino';
+
+SELECT COUNT(id) FROM usuario WHERE liga = 'BWF' AND genero = 'masculino';
+SELECT COUNT(id) FROM usuario WHERE liga = 'BWF' AND genero = 'feminino';
+
+SELECT COUNT(id) FROM usuario WHERE liga = 'WCW' AND genero = 'masculino';
+SELECT COUNT(id) FROM usuario WHERE liga = 'WCW' AND genero = 'feminino';

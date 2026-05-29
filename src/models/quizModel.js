@@ -10,7 +10,7 @@ function importar() {
 
 function quizesRealizados() {
     var instrucao = `
-        SELECT COUNT(idQuizRealizado) FROM quizRealizado;
+        SELECT COUNT(idQuizRealizado) AS 'quizes_realizados' FROM quizRealizado;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);    
@@ -26,5 +26,6 @@ function exportar(fkUsuario, fkQuiz, pontuacao) {
 
 module.exports = {
     importar,
-    exportar
+    exportar,
+    quizesRealizados
 };

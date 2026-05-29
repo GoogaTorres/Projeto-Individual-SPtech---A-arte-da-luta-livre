@@ -21,6 +21,7 @@
       background-attachment: fixed;
     }
   </style>
+  <script src="js/sessao.js"></script>
 </head>
 
 <body onload="validarLogin()">
@@ -50,25 +51,22 @@
         <a href="index.html">Home</a>
       </div>
       <div class="navbar-item">
-        <a href="">Ligas</a>
+        <a href="ligas.html">Ligas</a>
       </div>
       <div class="navbar-item">
-        <a href="">Lutadores</a>
+        <a href="lutadores.html">Lutadores</a>
       </div>
       <div class="navbar-item">
-        <a href="">Glossário</a>
+        <a href="glossario.html">Glossário</a>
       </div>
       <div class="navbar-item">
-        <a href="">Filmes de Pro-Wrestling</a>
+        <a href="filmesSeries.html">Filmes e séries</a>
       </div>
       <div class="navbar-item">
         <a href="quiz.html">Quiz</a>
       </div>
       <div class="navbar-item">
-        <a href="">Que lutador sou eu?</a>
-      </div>
-      <div class="navbar-item">
-        <a href="">Monte o seu show</a>
+        <a href="dashboard.html">Dashboard</a>
       </div>
     </div>
     <div class="navbarloginCadastro" id="navbarloginCadastro">
@@ -77,6 +75,11 @@
       </div>
       <div class="navbar-item">
         <a href="cadastro.html">Cadastro</a>
+      </div>
+    </div>
+    <div class="navbarSair" id="navbarSair" style="display: none;">
+      <div class="navbar-item">
+        <a onclick="limparSessao()">Sair</a>
       </div>
     </div>
   </div>
@@ -285,14 +288,16 @@
 
   function validarLogin() {
     if (sessionStorage.NOME_USUARIO == undefined) {
-      username.innerHTML = `Usuário não autenticado`
+      username.innerHTML = `Usuário não autenticado`;
     } else {
       if (sessionStorage.GENERO_USUARIO == `masculino`) {
-        username.innerHTML = `Bem-vindo, ${sessionStorage.NOME_USUARIO}`
+        username.innerHTML = `Bem-vindo, ${sessionStorage.NOME_USUARIO}`;
         navbarloginCadastro.style.display = "none";
+        navbarSair.style.display = "block"
       } else {
-        username.innerHTML = `Bem-vinda, ${sessionStorage.NOME_USUARIO}`
+        username.innerHTML = `Bem-vinda, ${sessionStorage.NOME_USUARIO}`;
         navbarloginCadastro.style.display = "none";
+        navbarSair.style.display = "block"
       }
     }
   }

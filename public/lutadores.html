@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A arte da luta-livre</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- IMPORTANDO FONTE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background-image: url(imagens/036_SNME_05232026CN_111833.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+  </style>
+<script src="js/sessao.js"></script>
+</head>
+
+<body onload="validarLogin()">
+  <header>
+    <div class="box-header">
+      <div class="box-header-items">
+        <img src="imagens/logo.png" alt="" width="200px" />
+        <div class="box-header-description">
+          <p>
+            Luta livre, lucha libre, pro-wrestling, telecatch, puroresu... São
+            muitos nomes que definem essa arte, mas o seu universo é muito
+            mais profundo do que se imagina.
+          </p>
+        </div>
+      </div>
+      <div id="user">
+        <span id="username">TESTE USUÁRIO</span>
+        <span id="userIcon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+            <path fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+          </svg></span>
+      </div>
+    </div>
+  </header>
+  <div class="navbar">
+    <div class="navbar-items">
+      <div class="navbar-item">
+        <a href="index.html">Home</a>
+      </div>
+      <div class="navbar-item">
+        <a href="ligas.html">Ligas</a>
+      </div>
+      <div class="navbar-item">
+        <a href="lutadores.html">Lutadores</a>
+      </div>
+      <div class="navbar-item">
+        <a href="glossario.html">Glossário</a>
+      </div>
+      <div class="navbar-item">
+        <a href="filmesSeries.html">Filmes e séries</a>
+      </div>
+      <div class="navbar-item">
+        <a href="quiz.html">Quiz</a>
+      </div>
+      <div class="navbar-item">
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+    </div>
+    <div class="navbarloginCadastro" id="navbarloginCadastro">
+      <div class="navbar-item">
+        <a href="login.html">Login</a>
+      </div>
+      <div class="navbar-item">
+        <a href="cadastro.html">Cadastro</a>
+      </div>
+    </div>
+    <div class="navbarSair" id="navbarSair" style="display: none;">
+      <div class="navbar-item">
+        <a onclick="limparSessao()">Sair</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bodyLigas">
+
+    <div class="cardLutadores" id="johnCena">
+      <div class="ligaLutador"><img src="imagens/ligas/wwe.png" alt="" width="100px"></div>
+      <div class="lutadoresDiv1">
+        <div class="nomeLutador">
+          <p>JOHN CENA</p>
+        </div>
+        <div class="fotoLutador">
+          <img src="imagens/lutadores/johncena.png" alt="" width="150px">
+        </div>
+        <div class="nomeLutador">
+        </div>
+      </div>
+      <div class="descricao">
+        <p>John Cena tem sido o maior destaque dos últimos 20 anos da WWE pelas suas conquistas e se tornou o mais
+          popular entre os fãs mais jovens. Além do talento no ringue, John Cena é um dos atletas que mais visitou
+          crianças em hospitais diagnosticadas com câncer. Hoje John Cena é um dos atores mais populares em Hollywood.
+        </p>
+      </div>
+    </div>
+
+    <div class="cardLutadores" id="reyMysterio">
+      <div class="ligaLutador"><img src="imagens/ligas/wwe.png" alt="" width="100px"></div>
+      <div class="lutadoresDiv1">
+        <div class="nomeLutador">
+          <p>REY MYSTERIO</p>
+        </div>
+        <div class="fotoLutador">
+          <img src="imagens/lutadores/reymysterio.png" alt="" width="150px">
+        </div>
+        <div class="nomeLutador">
+        </div>
+      </div>
+      <div class="descricao">
+        <p>O lendário mexicano mestre do 619 é um dos lutadores mais talentosos do estilo lucha libre. Rey Mysterio é um
+          dos lutadores mundialmente mais famosos pelo seu estilo habilidoso no ringue e pela sua máscara inconfundível.
+        </p>
+      </div>
+    </div>
+
+    <div class="cardLutadores" id="undertaker">
+      <div class="ligaLutador"><img src="imagens/ligas/wwe.png" alt="" width="100px"></div>
+      <div class="lutadoresDiv1">
+        <div class="nomeLutador">
+          <p>UNDERTAKER</p>
+        </div>
+        <div class="fotoLutador">
+          <img src="imagens/lutadores/undertaker.png" alt="" width="150px">
+        </div>
+        <div class="nomeLutador">
+        </div>
+      </div>
+      <div class="descricao">
+        <p>O Undertaker é um homem de poucas palavras, capaz de intimidar os lutadores mais durões da luta-livre com os
+          seus poderes sobrenaturais. Hoje Undertaker está aposentado, mas por muitos anos, tem sido um dos maiores de
+          todos os tempos com combates inesquecíveis e uma incrível sequência de 21 vitórias na Wrestlemania.
+        </p>
+      </div>
+    </div>
+
+    <div class="cardLutadores" id="beckyLynch">
+      <div class="ligaLutador"><img src="imagens/ligas/wwe.png" alt="" width="100px"></div>
+      <div class="lutadoresDiv1">
+        <div class="nomeLutador">
+          <p>BECKY LYNCH</p>
+        </div>
+        <div class="fotoLutador">
+          <img src="imagens/lutadores/beckyLynch.png" alt="" width="150px">
+        </div>
+        <div class="nomeLutador">
+        </div>
+      </div>
+      <div class="descricao">
+        <p>Becky Lynch é uma das lutadoras de maior sucesso recente na WWE, além de ter definido uma nova era ao ser a
+          primeira lutadora a competir no evento principal da Wrestlemania ao lado de Charlotte Flair e Ronda Rousey.
+        </p>
+      </div>
+    </div>
+
+    <div class="cardLutadores" id="brockLesnar">
+      <div class="ligaLutador"><img src="imagens/ligas/wwe.png" alt="" width="100px"></div>
+      <div class="lutadoresDiv1">
+        <div class="nomeLutador">
+          <p>BROCK LESNAR</p>
+        </div>
+        <div class="fotoLutador">
+          <img src="imagens/lutadores/brockLesnar.png" alt="" width="150px">
+        </div>
+        <div class="nomeLutador">
+        </div>
+      </div>
+      <div class="descricao">
+        <p>"A Besta Enjaulada" Brock Lesnar é um dos lutadores mais temidos na luta-livre. Desde a sua primeira passagem
+          na WWE, Brock Lesnar já dominava os melhores lutadores, e após a sua saída do UFC, Lesnar voltou melhor do que
+          nunca, tendo quebrado até mesmo a sequência de vitórias do Undertaker na Wrestlemania 30.
+        </p>
+      </div>
+    </div>
+
+    <div class="cardLutadores" id="hulkHogan">
+      <div class="ligaLutador"><img src="imagens/ligas/wwe.png" alt="" width="100px"></div>
+      <div class="lutadoresDiv1">
+        <div class="nomeLutador">
+          <p>HULK HOGAN</p>
+        </div>
+        <div class="fotoLutador">
+          <img src="imagens/lutadores/hulkHogan.png" alt="" width="150px">
+        </div>
+        <div class="nomeLutador">
+        </div>
+      </div>
+      <div class="descricao">
+        <p>Hulk Hogan "O Imortal" foi o primeiro grande fenômeno da WWE nos anos 80. Pode-se dizer que Hulk Hogan foi um
+          dos principais responsáveis pelo sucesso da Wrestlemania e pelo crescimento da WWE. Ele também se destacou no
+          mundo da luta-livre quando passou a lutar pela WCW e criou a New World Order.
+        </p>
+      </div>
+    </div>
+
+    <div class="cardLutadores" id="codyRhodes">
+      <div class="ligaLutador"><img src="imagens/ligas/wwe.png" alt="" width="100px"></div>
+      <div class="lutadoresDiv1">
+        <div class="nomeLutador">
+          <p>CODY RHODES</p>
+        </div>
+        <div class="fotoLutador">
+          <img src="imagens/lutadores/codyrhodes.png" alt="" width="150px">
+        </div>
+        <div class="nomeLutador">
+        </div>
+      </div>
+      <div class="descricao">
+        <p>Cody Rhodes "O pesadelo americano" é o atual lutador mais popular da WWE. Após sua saída, ele se reiventou na
+          indústria da luta-livre, com passagem pela TNA, ROH e a participação na criação da AEW. Quando Cody Rhodes
+          retornou à WWE, todos os fãs receberam como um campeão que já dominava a casa.
+        </p>
+      </div>
+    </div>
+
+    <div class="cardLutadores" id="romanReigns">
+      <div class="ligaLutador"><img src="imagens/ligas/wwe.png" alt="" width="100px"></div>
+      <div class="lutadoresDiv1">
+        <div class="nomeLutador">
+          <p>ROMAN REIGNS</p>
+        </div>
+        <div class="fotoLutador">
+          <img src="imagens/lutadores/romanReigns.png" alt="" width="150px">
+        </div>
+        <div class="nomeLutador">
+        </div>
+      </div>
+      <div class="descricao">
+        <p>Roman Reigns "O Chefe da Tribo" é um dos lutadores mais dominantes da atualidade. Roman Reigns surgiu como
+          integrante do grupo "The Shield" e conquistou títulos mundiais, tendo um reinado de 1316 dias como campeão
+          mundial, além de já ter derrotado grandes nomes como Brock Lesnar, Undertaker e Goldberg.
+        </p>
+      </div>
+    </div>
+
+    <div class="cardLutadores" id="kennyOmega">
+      <div class="ligaLutador"><img src="imagens/ligas/aew.png" alt="" width="100px"></div>
+      <div class="lutadoresDiv1">
+        <div class="nomeLutador">
+          <p>KENNY OMEGA</p>
+        </div>
+        <div class="fotoLutador">
+          <img src="imagens/lutadores/kennyOmega.png" alt="" width="150px">
+        </div>
+        <div class="nomeLutador">
+        </div>
+      </div>
+      <div class="descricao">
+        <p>Kenny Omega é uma das estrelas mais populares na indústria da luta-livre que cresceu fora do cenário main
+          stream. Kenny se destacou no Japão e ganhou popularidade entre os fãs ao realizar grandes combates técnicos.
+          Hoje Kenny Omega luta pela All Elite Wrestling, liga em que tem se destacado pelo seu talento e conquista de
+          títulos.
+        </p>
+      </div>
+    </div>
+
+    <div class="cardLutadores" id="mjf">
+      <div class="ligaLutador"><img src="imagens/ligas/aew.png" alt="" width="100px"></div>
+      <div class="lutadoresDiv1">
+        <div class="nomeLutador">
+          <p>MJF</p>
+        </div>
+        <div class="fotoLutador">
+          <img src="imagens/lutadores/mjf.png" alt="" width="150px">
+        </div>
+        <div class="nomeLutador">
+        </div>
+      </div>
+      <div class="descricao">
+        <p>MJF (Maxwell Jacob Friedman) é um gênio do mal e um dos principais vilões da AEW e da indústria da
+          luta-livre, se destacando pela sua atitude e habilidade de falar com o microfone com sua língua afiada.
+          Pode-se dizer que MJF é um jovem prodígio ao ter conquistado o título mundial da AEW antes dos 30 anos.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer content">
+        <div class="footer texto">
+          <p>Projeto desenvolvido por Gustavo Torres | 2026</p>
+          <p style="font-size: small">
+            Este projeto foi desenvolvido para fins acadêmicos e contém
+            materiais audiovisuais de propriedade da World Wrestling
+            Entertainment, All Elite Wrestling, Total Nonstop Action, Brazilian
+            Wrestling Federation e outras companhias.
+          </p>
+          <svg fill="#ffffff" width="35px" height="35px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+            data-name="Layer 1">
+            <path
+              d="M12,2.2467A10.00042,10.00042,0,0,0,8.83752,21.73419c.5.08752.6875-.21247.6875-.475,0-.23749-.01251-1.025-.01251-1.86249C7,19.85919,6.35,18.78423,6.15,18.22173A3.636,3.636,0,0,0,5.125,16.8092c-.35-.1875-.85-.65-.01251-.66248A2.00117,2.00117,0,0,1,6.65,17.17169a2.13742,2.13742,0,0,0,2.91248.825A2.10376,2.10376,0,0,1,10.2,16.65923c-2.225-.25-4.55-1.11254-4.55-4.9375a3.89187,3.89187,0,0,1,1.025-2.6875,3.59373,3.59373,0,0,1,.1-2.65s.83747-.26251,2.75,1.025a9.42747,9.42747,0,0,1,5,0c1.91248-1.3,2.75-1.025,2.75-1.025a3.59323,3.59323,0,0,1,.1,2.65,3.869,3.869,0,0,1,1.025,2.6875c0,3.83747-2.33752,4.6875-4.5625,4.9375a2.36814,2.36814,0,0,1,.675,1.85c0,1.33752-.01251,2.41248-.01251,2.75,0,.26251.1875.575.6875.475A10.0053,10.0053,0,0,0,12,2.2467Z" />
+          </svg>
+          <svg fill="#ffffff" width="35px" height="35px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+            data-name="Layer 1">
+            <path
+              d="M20.47,2H3.53A1.45,1.45,0,0,0,2.06,3.43V20.57A1.45,1.45,0,0,0,3.53,22H20.47a1.45,1.45,0,0,0,1.47-1.43V3.43A1.45,1.45,0,0,0,20.47,2ZM8.09,18.74h-3v-9h3ZM6.59,8.48h0a1.56,1.56,0,1,1,0-3.12,1.57,1.57,0,1,1,0,3.12ZM18.91,18.74h-3V13.91c0-1.21-.43-2-1.52-2A1.65,1.65,0,0,0,12.85,13a2,2,0,0,0-.1.73v5h-3s0-8.18,0-9h3V11A3,3,0,0,1,15.46,9.5c2,0,3.45,1.29,3.45,4.06Z" />
+          </svg>
+        </div>
+      </div>
+    </footer>
+</body>
+
+</html>
+
+<script>
+  function validarLogin() {
+    if (sessionStorage.NOME_USUARIO == undefined) {
+      username.innerHTML = `Usuário não autenticado`;
+    } else {
+      if (sessionStorage.GENERO_USUARIO == `masculino`) {
+        username.innerHTML = `Bem-vindo, ${sessionStorage.NOME_USUARIO}`;
+        navbarloginCadastro.style.display = "none";
+        navbarSair.style.display = "block"
+      } else {
+        username.innerHTML = `Bem-vinda, ${sessionStorage.NOME_USUARIO}`;
+        navbarloginCadastro.style.display = "none";
+        navbarSair.style.display = "block"
+      }
+    }
+  }
+</script>
