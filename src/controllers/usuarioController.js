@@ -20,19 +20,19 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        // aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            // .then((resultadoAquarios) => {
-                                // if (resultadoAquarios.length > 0) {
+                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
+                            .then((resultadoAquarios) => {
+                                if (resultadoAquarios.length > 0) {
                                     res.json({
                                         id: resultadoAutenticar[0].id,
                                         email: resultadoAutenticar[0].email,
-                                        nomeUsuario: resultadoAutenticar[0].nomeUsuario,
+                                        nome: resultadoAutenticar[0].nome,
                                         senha: resultadoAutenticar[0].senha,
-                                        genero: resultadoAutenticar[0].genero
-                                    // });
-                                // } else {
-                                    // res.status(204).json({ aquarios: [] });
-                                // }
+                                        aquarios: resultadoAquarios
+                                    });
+                                } else {
+                                    res.status(204).json({ aquarios: [] });
+                                }
                             })
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
@@ -53,30 +53,24 @@ function autenticar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nomeUsuario = req.body.nomeUsuarioServer;
+    var nome = req.body.nomeServer;
     var email = req.body.emailServer;
-    var genero = req.body.generoServer;
     var senha = req.body.senhaServer;
-    var lutadorFavorito = req.body.lutadorFavoritoServer;
-    var liga = req.body.ligaServer;
+    var fkEmpresa = req.body.idEmpresaVincularServer;
 
     // Faça as validações dos valores
-    if (nomeUsuario == undefined) {
+    if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
-    } else if (genero == undefined) {
-        res.status(400).send("Seu gênero está undefined!");
-    }else if (senha == undefined) {
+    } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (lutadorFavorito == undefined) {
-        res.status(400).send("Seu lutador favorito está undefined!");
-    } else if (liga == undefined) {
-        res.status(400).send("Sua liga está undefined!");
+    } else if (fkEmpresa == undefined) {
+        res.status(400).send("Sua empresa a vincular está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nomeUsuario, email, genero, senha, lutadorFavorito, liga)
+        usuarioModel.cadastrar(nome, email, senha, fkEmpresa)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -94,27 +88,7 @@ function cadastrar(req, res) {
     }
 }
 
-function usuariosCadastrados(req, res) {
-    usuarioModel.usuariosCadastrados().then(function(resultado){
-        // precisamos informar que o resultado voltará para o front-end como uma resposta em json
-        res.status(200).json(resultado);
-    }).catch(function(erro){
-        res.status(500).json(erro.sqlMessage);
-    })
-}
-
-function ligaFavorita(req, res) {
-    usuarioModel.ligaFavorita().then(function(resultado){
-        // precisamos informar que o resultado voltará para o front-end como uma resposta em json
-        res.status(200).json(resultado);
-    }).catch(function(erro){
-        res.status(500).json(erro.sqlMessage);
-    })
-}
-
 module.exports = {
     autenticar,
-    cadastrar,
-    usuariosCadastrados,
-    ligaFavorita
+    cadastrar
 }
