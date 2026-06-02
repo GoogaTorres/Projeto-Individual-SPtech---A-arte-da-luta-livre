@@ -313,10 +313,11 @@ footer{
 .body.cadastro {
     width: 100%;
     height: 100%;
-    background-image: url(../imagens/bg2.avif);
+    background-image: url(../imagens/bg5.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-position-y: -400px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -801,6 +802,8 @@ background-color: #ffffff30;
     height: 30px;
     align-items: center;
 }
+
+
 
 .fotoLutador img{
     border-radius: 10px;

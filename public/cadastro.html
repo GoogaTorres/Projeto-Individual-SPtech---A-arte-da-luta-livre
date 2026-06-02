@@ -1,212 +1,335 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A arte da luta-livre</title>
+    <link rel="stylesheet" href="css/style.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- IMPORTANDO FONTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap"
+      rel="stylesheet"
+    />
 
-  <title>AquaTech | Cadastro</title>
+    <style> 
+      body{
+        overflow: hidden; /* ESSE ELEMENTO É UTILIZADO PARA EVITAR SCROLL NA PÁGINA */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 100%;
+      }
 
-  <script src="./js/sessao.js"></script>
-
-  <link rel="stylesheet" href="./css/estilo.css" />
-  <link rel="icon" href="./assets/icon/favicon2.ico" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-</head>
-
-<body onload="listar()">
-  <!--header inicio-->
-  <div class="header">
-    <div class="container">
-      <h1 class="titulo">AquaTech</h1>
-      <ul class="navbar">
-        <li>
-          <a href="index.html">Inicial</a>
-        </li>
-        <li>
-          <a href="simulador.html">Simulador</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li class="agora">
-          <a href="#">Cadastro</a>
-        </li>
-      </ul>
+      footer{
+         position: absolute; /*A POSITION ABSOLUTE SÓ SERÁ USADA QUANDO A PÁGINA NÃO TIVER ROLAGEM*/
+      }
+    </style>
+  <script src="js/sessao.js"></script>
+  </head>
+  <body onload="validarLogin()">
+  <header>
+    <div class="box-header">
+      <div class="box-header-items">
+        <img src="imagens/logo.png" alt="" width="200px">
+        <div class="box-header-description">
+          <p>
+            Luta livre, lucha libre, pro-wrestling, telecatch, puroresu... São
+            muitos nomes que definem essa arte, mas o seu universo é muito
+            mais profundo do que se imagina.
+          </p>
+        </div>
+      </div>
+      <div id="user">
+      <span id="username">TESTE USUÁRIO</span> <span id="userIcon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+</svg></span>
+</div>
     </div>
-  </div>
-  <!--header fim-->
-
-  <div class="login">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
+  </header>
+  <div class="navbar">
+    <div class="navbar-items">
+      <div class="navbar-item">
+        <a href="index.html">Home</a>
+      </div>
+      <div class="navbar-item">
+        <a href="ligas.html">Ligas</a>
+      </div>
+      <div class="navbar-item">
+        <a href="lutadores.html">Lutadores</a>
+      </div>
+      <div class="navbar-item">
+        <a href="glossario.html">Glossário</a>
+      </div>
+      <div class="navbar-item">
+        <a href="filmesSeries.html">Filmes e séries</a>
+      </div>
+      <div class="navbar-item">
+        <a href="quiz.html">Quiz</a>
+      </div>
+      <div class="navbar-item">
+        <a href="dashboard.html">Dashboard</a>
       </div>
     </div>
-    <div class="container">
-      <div class="card card-cadastro">
-        <h2>Bem-vindo!</h2>
-        <div class="formulario">
-          <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-          <div class="campo">
-            <span>Código de ativação:</span>
-            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
-          </div>
-          <div class="campo">
-            <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-          <div class="campo">
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div>
-          <div class="campo">
-            <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
-        </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
-        </div>
-
-        <div id="div_erros_login"></div>
+    <div class="navbarloginCadastro" id="navbarloginCadastro">
+      <div class="navbar-item">
+        <a href="login.html">Login</a>
+      </div>
+      <div class="navbar-item">
+        <a href="cadastro.html">Cadastro</a>
+      </div>
+    </div>
+    <div class="navbarSair" id="navbarSair" style="display: none;">
+      <div class="navbar-item">
+        <a onclick="limparSessao()">Sair</a>
       </div>
     </div>
   </div>
 
-  <!--footer inicio-->
-  <div class="footer">
-    <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-      <span class="version">v1.0.0</span>
+    <div class="body cadastro">
+      <div class="card form"> 
+        <div class="card formContent">
+          Nome de usuário
+          <br>
+          <input type="text" id="input_nomeUsuario">
+          <br>
+          Gênero
+          <br>
+            <select name="genero" id="select_genero">
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+            </select>
+          <br>  
+          Data de nascimento
+          <br>
+          <input type="date" id="input_dataNascimento">
+          <br>
+          Liga favorita
+          <br>
+          <select name="" id="select_liga">
+            <option>WWE</option>
+            <option>AEW</option>
+            <option>TNA</option>
+            <option>CMLL</option>
+            <option>BWF</option>
+            <option>NJPW</option>
+            <option>WCW</option>
+          </select>
+          <br>
+          Lutador(a) favorito
+          <br>
+          <select name="" id="select_lutadorFavorito">
+            <option>Adrian Jaoude</option>
+            <option>AJ Lee</option>
+            <option>AJ Styles</option>
+            <option>Aquiles</option>
+            <option>Awesome Kong</option>
+            <option>Batista</option>
+            <option>Becky Lynch</option>
+            <option>Bobby Lashley</option>
+            <option>Booker T</option>
+            <option>Bret Hart</option>
+            <option>Britt Baker</option>
+            <option>Brock Lesnar</option>
+            <option>Cezar Bononi</option>
+            <option>Chris Jericho</option>
+            <option>CM Punk</option>
+            <option>Darby Allin</option>
+            <option>Hulk Hogan</option>
+            <option>Jade Cargill</option>
+            <option>Joe Hendry</option>
+            <option>John Cena</option>
+            <option>Jon Moxley</option>
+            <option>Kelly Kelly</option>
+            <option>Kenny Omega</option>
+            <option>Liv Morgan</option>
+            <option>Melina</option>
+            <option>Mercedes Mone</option>
+            <option>Michel Serdan</option>
+            <option>Mister Argentina</option>
+            <option>Oba Femi</option>
+            <option>Owen Hart</option>
+            <option>Rey Mysterio</option>
+            <option>Rhea Ripley</option>
+            <option>Ric Flair</option>
+            <option>Roman Reigns</option>
+            <option>Seth Rollins</option>
+            <option>Shawn Michaels</option>
+            <option>Stone Cold Steven Austin</option>
+            <option>Taynara Guevara</option>
+            <option>Ted Boy Marino</option>
+            <option>The Rock</option>
+            <option>Triple H</option>
+            <option>Undertaker</option>
+            <option>Will Ospreay</option>
+          </select>
+          <br>
+          Email
+          <br>
+          <input type="email" id="input_email"> 
+          <br>
+          Senha
+          <br>
+          <input type="password" id="input_senha">
+          <br>
+          Repita a sua senha
+          <br>
+          <input type="password" id="input_senha2">
+          <br>
+          <button onclick="cadastrar()">Cadastrar</button>
+        </div>
+      </div>
+          <div class="card alerta" id="cardAlerta"></div>
     </div>
-  </div>
-  <!--footer fim-->
-</body>
+        </div>
+    
+      </div>
+  <footer>
+    <div class="footer content">
+      <div class="footer texto">
+        <p>Projeto desenvolvido por Gustavo Torres | 2026</p>
+        <p style="font-size: small">
+          Este projeto foi desenvolvido para fins acadêmicos e contém
+          materiais audiovisuais de propriedade da World Wrestling
+          Entertainment, All Elite Wrestling, Total Nonstop Action, Brazilian
+          Wrestling Federation e outras companhias.
+        </p>
+        <svg fill="#ffffff" width="35px" height="35px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+          data-name="Layer 1">
+          <a href="https://github.com/GoogaTorres" target="_blank">
+            <path d="M12,2.2467A10.00042,10.00042,0,0,0,8.83752,21.73419c.5.08752.6875-.21247.6875-.475,0-.23749-.01251-1.025-.01251-1.86249C7,19.85919,6.35,18.78423,6.15,18.22173A3.636,3.636,0,0,0,5.125,16.8092c-.35-.1875-.85-.65-.01251-.66248A2.00117,2.00117,0,0,1,6.65,17.17169a2.13742,2.13742,0,0,0,2.91248.825A2.10376,2.10376,0,0,1,10.2,16.65923c-2.225-.25-4.55-1.11254-4.55-4.9375a3.89187,3.89187,0,0,1,1.025-2.6875,3.59373,3.59373,0,0,1,.1-2.65s.83747-.26251,2.75,1.025a9.42747,9.42747,0,0,1,5,0c1.91248-1.3,2.75-1.025,2.75-1.025a3.59323,3.59323,0,0,1,.1,2.65,3.869,3.869,0,0,1,1.025,2.6875c0,3.83747-2.33752,4.6875-4.5625,4.9375a2.36814,2.36814,0,0,1,.675,1.85c0,1.33752-.01251,2.41248-.01251,2.75,0,.26251.1875.575.6875.475A10.0053,10.0053,0,0,0,12,2.2467Z" />
+          </a>
+        </svg>
+        <svg fill="#ffffff" width="35px" height="35px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+          data-name="Layer 1">
+          <a href="https://www.linkedin.com/in/gustavotorres99/" target="_blank">
+            <path d="M20.47,2H3.53A1.45,1.45,0,0,0,2.06,3.43V20.57A1.45,1.45,0,0,0,3.53,22H20.47a1.45,1.45,0,0,0,1.47-1.43V3.43A1.45,1.45,0,0,0,20.47,2ZM8.09,18.74h-3v-9h3ZM6.59,8.48h0a1.56,1.56,0,1,1,0-3.12,1.57,1.57,0,1,1,0,3.12ZM18.91,18.74h-3V13.91c0-1.21-.43-2-1.52-2A1.65,1.65,0,0,0,12.85,13a2,2,0,0,0-.1.73v5h-3s0-8.18,0-9h3V11A3,3,0,0,1,15.46,9.5c2,0,3.45,1.29,3.45,4.06Z" />
+          </a>
+        </svg>
+      </div>
+    </div>
+  </footer>
 
+  </body>
 </html>
-
 <script>
 
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
-
-  function cadastrar() {
-    // aguardar();
-
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
-
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
-      finalizarAguardar();
-      return false;
+  function validarLogin() {
+    if (sessionStorage.NOME_USUARIO == undefined) {
+      username.innerHTML = `Usuário não autenticado`;
     } else {
-      setInterval(sumirMensagem, 5000);
-    }
-
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
+      if (sessionStorage.GENERO_USUARIO == `masculino`) {
+        username.innerHTML = `Bem-vindo, ${sessionStorage.NOME_USUARIO}`;
+        navbarloginCadastro.style.display = "none";
+        navbarSair.style.display = "block"
       } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
+        username.innerHTML = `Bem-vinda, ${sessionStorage.NOME_USUARIO}`;
+        navbarloginCadastro.style.display = "none";
+        navbarSair.style.display = "block"
       }
     }
+  }
 
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
 
-        if (resposta.ok) {
-          cardErro.style.display = "block";
+  function cadastrar() {
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+    var caracteresEspeciais = ['!', '@', '#', '$', '%', '¨', '&', '*', '(',')', '-', '=', '+', '_', '\'', '/', '?', '~', '^'];
+    var qtdCaracteresEspeciais = 0;
 
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
+    var nomeUsuarioVar = input_nomeUsuario.value;
+    var generoVar = select_genero.value;
+    var ligaVar = select_liga.value;
+    var lutadorFavoritoVar = select_lutadorFavorito.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+    var senha2Var = input_senha2.value;
+    let cadastroValido = false;
 
-          limparFormulario();
-          finalizarAguardar();
+    if (nomeUsuarioVar == `` || emailVar == `` || senhaVar == `` || senha2Var == ``){
+    cardAlerta.style.display = "block";
+    cardAlerta.innerHTML = `Os campos devem estar preenchidos`
+    } else {
+      if (nomeUsuarioVar.length < 5){
+        cardAlerta.style.display = "block";
+        cardAlerta.innerHTML = `O nome de usuário deve ter ao menos 5 caracteres.`
+      } else {
+        if (nomeUsuarioVar.includes(' ')){
+          cardAlerta.style.display = "block";
+          cardAlerta.innerHTML = `O nome de usuário não pode conter espaço.`
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+          if (!emailVar.includes('@') || !emailVar.includes('.') || emailVar.startsWith('@') || emailVar.startsWith('.') || emailVar.endsWith('@') || emailVar.endsWith('.') || emailVar.includes(' ')){
+            cardAlerta.style.display = "block";
+            cardAlerta.innerHTML = `Email inválido.`
+          } else {
+            if (senhaVar != senha2Var){
+              cardAlerta.style.display = "block";
+              cardAlerta.innerHTML = `As senhas não coincidem, digite novamente.`
+            } else {
+              if (senhaVar == senhaVar.toLowerCase() || senhaVar == senhaVar.toUpperCase() || senhaVar.length < 6){
+                cardAlerta.style.display = "block";
+                cardAlerta.innerHTML = `A sua senha deve ter letras em caracteres maiúsculos, minúsculos, no mínimo 6 caracteres e um caractere especial.`
+              } else {
+                for (i = 0; i < caracteresEspeciais.length; i++){
+                  if (senhaVar.includes(caracteresEspeciais[i])){
+                    qtdCaracteresEspeciais++
+                  } 
+                  if (qtdCaracteresEspeciais < 1){
+                  cardAlerta.style.display = "block";
+                  cardAlerta.innerHTML = `A sua senha deve ter letras em caracteres maiúsculos, minúsculos, no mínimo 6 caracteres e um caractere especial.`
+                  } else {
+                    // Enviando o valor da nova input
+                    fetch("/usuarios/cadastrar", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({
+                        // crie um atributo que recebe o valor recuperado aqui
+                        // Agora vá para o arquivo routes/usuario.js
+                        nomeUsuarioServer: nomeUsuarioVar,
+                        generoServer: generoVar,
+                        ligaServer: ligaVar,
+                        lutadorFavoritoServer: lutadorFavoritoVar,
+                        emailServer: emailVar,
+                        senhaServer: senhaVar
+                      }),
+                    })
+                      .then(function (resposta) {
+                        console.log("resposta: ", resposta);
+
+                        if (resposta.ok) {
+                          cardAlerta.style.display = "block";
+                          cardAlerta.style.backgroundColor = "#35ab54";
+                          cardAlerta.innerHTML = `Cadastro realizado com sucesso!`
+
+                          setTimeout(() => {
+                            window.location = "login.html";
+                          }, "2000");
+
+                          limparFormulario();
+                          finalizarAguardar();
+                        } else {
+                          throw "Houve um erro ao tentar realizar o cadastro!";
+                        }
+                      })
+                      .catch(function (resposta) {
+                        console.log(`#ERRO: ${resposta}`);
+                        finalizarAguardar();
+                      });
+                    return false;
+                  }
+              }
+            } 
+          }
         }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
-
-    return false;
-  }
-
-  // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
-
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
+      }
+    }
+  }                   
+} 
+  // function sumirMensagem() {
+  //   cardErro.style.display = "none";
+  // }
 </script>
